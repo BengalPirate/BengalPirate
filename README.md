@@ -14,15 +14,15 @@
 
 <div align="center">
 
-- 🔭 I’m currently working on **1. A social media website and 2. An action rpg game for Android and iOS**
-- 
-- 🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting**
-- 
-- 👯 I’m looking to collaborate on **An open world game with Unity**
-- 
-- 🤔 I’m looking for help with **Leetcode 😭**
+ 🔭 I’m currently working on **1. A social media website and 2. An action rpg game for Android and iOS**
+ 
+ 🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting**
+ 
+ 👯 I’m looking to collaborate on **An open world game with Unity**
+ 
+ 🤔 I’m looking for help with **Leetcode 😭**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
-- ⚡ Fun fact: **Venus rotates so slowly that a day there is longer than a year on Earth**
+ ⚡ Fun fact: **Venus rotates so slowly that a day there is longer than a year on Earth**
 
 </div>
 
