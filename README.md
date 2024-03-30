@@ -33,9 +33,9 @@
   <a href="mailto:BengalPirate@proton.me">
     <img src="https://img.shields.io/badge/Protonmail-6C4AFE?style=for-the-badge&logo=protonmail&logoColor=white"/>
   </a>
-  <a href="https://www.linkedin.com/in/brandon-newton-519607251/">
+  <!--<a href="https://www.linkedin.com/in/brandon-newton-519607251/">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
+  </a>-->
   <a href="https://gitlab.com/BengalPirate">
     <img src="https://img.shields.io/badge/Gitlab-E14328?style=for-the-badge&logo=gitlab&logoColor=FF9E1B"/>
   </a>
