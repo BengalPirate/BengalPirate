@@ -3,9 +3,6 @@
   <img src="https://i.imgur.com/0vgmLsY.gif" alt="Your Alt Text" height="250px" width="250px"> 
 </p>
 
-
-
-
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=BengalPirate.BengalPirate" />
 
 <h1 align="center">
@@ -42,6 +39,9 @@
   <a href="https://gitlab.com/BengalPirate">
     <img src="https://img.shields.io/badge/Gitlab-E14328?style=for-the-badge&logo=gitlab&logoColor=FF9E1B"/>
   </a>
+  <a href="https://bitbucket.org/bengalpirate/workspace/overview/">
+    <img src="https://img.shields.io/badge/Bitbucket-0052CC?style=for-the-badge&logo=bitbucket&logoColor=5298FB"/>
+  </a>
   <a href="https://www.flux.ai/bengalpirate">
     <img src="https://img.shields.io/badge/Flux.AI-34544C?style=for-the-badge&logo=amazonec2&logoColor=1CFAC2"/>
   </a>
@@ -68,6 +68,8 @@
 
   <br/><br/><br/>
 </div>
+
+
 
 
 
