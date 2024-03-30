@@ -42,6 +42,9 @@
   <a href="https://bitbucket.org/bengalpirate/workspace/overview/">
     <img src="https://img.shields.io/badge/Bitbucket-0052CC?style=for-the-badge&logo=bitbucket&logoColor=5298FB"/>
   </a>
+   <a href="https://stackoverflow.com/users/22466566/bengalpirate">
+    <img src="https://img.shields.io/badge/stack_overflow-BFBDBB?style=for-the-badge&logo=stackoverflow&logoColor=F48425"/>
+  </a>
   <a href="https://www.flux.ai/bengalpirate">
     <img src="https://img.shields.io/badge/Flux.AI-34544C?style=for-the-badge&logo=amazonec2&logoColor=1CFAC2"/>
   </a>
