@@ -49,7 +49,7 @@
     <img src="https://img.shields.io/badge/Flux.AI-34544C?style=for-the-badge&logo=amazonec2&logoColor=1CFAC2"/>
   </a>
   <a href="https://www.codewars.com/users/BengalPirate">
-    <img src="https://img.shields.io/badge/CodeWars-B1361E?style=for-the-badge&logo=codewars&logoColor=000000"/>
+    <img src="https://img.shields.io/badge/CodeWars-B1361E?style=for-the-badge&logo=codewars&logoColor=FFFFFF"/>
   </a>
 </div>
 
