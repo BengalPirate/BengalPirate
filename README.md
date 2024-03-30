@@ -36,6 +36,9 @@
   <a href="https://gitlab.com/BengalPirate">
     <img src="https://img.shields.io/badge/Gitlab-E14328?style=for-the-badge&logo=gitlab&logoColor=FF9E1B"/>
   </a>
+  <a href="https://www.flux.ai/bengalpirate">
+    <img src="https://img.shields.io/badge/Flux_AI-34544C?style=for-the-badge&logo=amazonec2&logoColor=1CFAC2"/>
+  </a>
 </div>
 
 <br/>
