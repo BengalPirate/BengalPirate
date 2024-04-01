@@ -66,7 +66,12 @@
 
 <br/>
 
-<h2 align="center"> 🛠️ Languages-Frameworks-Tools 🛠️ </h2>
+<h2 align="center">
+  <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> 
+  Languages-Frameworks-Tools 
+  <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;">
+</h2>
+
 <br/>
 <div align="center">
   <a href="https://skillicons.dev">
