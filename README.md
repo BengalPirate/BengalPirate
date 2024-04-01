@@ -5,7 +5,7 @@
 
 <!--img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=BengalPirate.BengalPirate" /-->
 
-<img align="right" src=https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/>
+<img align="right" src="https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/>
 
 <h1 align="center">
   <a href="https://git.io/typing-svg">
