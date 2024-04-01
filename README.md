@@ -48,6 +48,11 @@
   <a href="https://www.flux.ai/bengalpirate">
     <img src="https://img.shields.io/badge/Flux.AI-34544C?style=for-the-badge&logo=amazonec2&logoColor=1CFAC2"/>
   </a>
+</div>
+<div>
+  <a href="https://leetcode.com/BengalPirate/">
+    <img src="https://img.shields.io/badge/LeetCode-B1361E?style=for-the-badge&logo=leetcode&logoColor=FFA116"/>
+  </a>
   <a href="https://www.codewars.com/users/BengalPirate">
     <img src="https://img.shields.io/badge/CodeWars-B1361E?style=for-the-badge&logo=codewars&logoColor=FFFFFF"/>
   </a>
