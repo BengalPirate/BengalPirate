@@ -51,7 +51,7 @@
 </div>
 <div align="center">
   <a href="https://leetcode.com/BengalPirate/">
-    <img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116"/>
+    <img src="https://img.shields.io/badge/LeetCode-BFBDBB?style=for-the-badge&logo=leetcode&logoColor=FFA116"/>
   </a>
   <a href="https://www.codewars.com/users/BengalPirate">
     <img src="https://img.shields.io/badge/CodeWars-B1361E?style=for-the-badge&logo=codewars&logoColor=FFFFFF"/>
