@@ -91,11 +91,6 @@
   <br/><br/><br/>
 </div>
 
-![status image not available](https://github-readme-stats.vercel.app/api?username=BengalPirate&show_icons=true&theme=kacho_ga&hide_border=none&bg_color=00000000)
-![status image not available](https://github-readme-stats.vercel.app/api/top-langs?username=BengalPirate1&theme=kacho_ga&hide_border=none&layout=compact&bg_color=00000000)
-
-
-
 
 
 
