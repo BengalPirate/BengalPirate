@@ -18,7 +18,7 @@
   <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
     <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px" alt="About me">
   </a>
-  <div style="margin-left: 10px;">&larr; click the GIF for good music</div>
+  <div style="margin-left: 10px;">(click the GIF for good music)</div>
 </div>
 
 
