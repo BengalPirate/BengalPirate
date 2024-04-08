@@ -11,6 +11,8 @@
 
 <img align="right" src="https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/>
 
+![Bladerunner Image](Bladerunner.jpg "Blade Runner Image")
+
 <h1 align="center">
   <a href="https://www.youtube.com/watch?v=1JNmz17gnMw&list=RDWK2R6RNwHDY&index=2">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hello+Friend+👋;" />
