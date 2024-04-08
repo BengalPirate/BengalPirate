@@ -13,11 +13,14 @@
   </a>
 </h1>
 
-<div align="center">
+<div align="center" style="display: flex; align-items: center; justify-content: center;">
+  <div style="margin-right: 10px;">About Me</div>
   <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
     <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px" alt="About me">
   </a>
+  <div style="margin-left: 10px;">&larr; click the GIF for good music</div>
 </div>
+
 
 
 <h3 align="center">A passionate full stack software developer, computer engineer and cybersecurity enthusiast</h3>
