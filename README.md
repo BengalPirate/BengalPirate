@@ -37,7 +37,7 @@
  
  🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting, and how to design PCBs**
  
- 👯 I’m looking to collaborate on **An open world game with Unity**
+ 👯 I’m looking to collaborate on **An open world game with Unity** and **An AR/VR Project once the XReal Air 2 Ultra (once released)**
  
  🤔 I’m looking for help with **Leetcode 😭**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
