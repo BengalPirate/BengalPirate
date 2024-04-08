@@ -28,7 +28,7 @@
     <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
       <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 40px; height: 40px;">
     </a>
-  <div style="margin-left: 10px;">(click the GIF for good music)</div>
+  <div style="margin-left: 10px;">(click the GIFs for good music)</div>
 </div>
 
 
