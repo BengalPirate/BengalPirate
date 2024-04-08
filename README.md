@@ -114,6 +114,7 @@
 </div>
 
 Chess Match 
+(ther is a slight delay before movement is updated, please wait 5 min, will speed up in future)
 (work in progress, please ignore for now, trying to integrate A.I. properly as black)
 
 This is an open chess tournament where ANYONE can play. That's the fun part.  
