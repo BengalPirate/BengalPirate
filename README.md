@@ -113,7 +113,7 @@
   <br/><br/><br/>
 </div>
 
-Chess Match 
+Chess Match (work in progress)
 
 This is an open chess tournament where ANYONE can play. That's the fun part.  
 (All profile visitors play on a team for white vs A.I. for black)
