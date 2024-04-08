@@ -18,7 +18,7 @@
 </h1>
 
 <div align="center" style="display: flex; align-items: center; justify-content: center;">
-  <div style="margin-right: 10px;">About Me</div>
+  <div style="margin-right: 30px;">About Me</div>
     <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
       <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 40px; height: 40px;">
     </a>
