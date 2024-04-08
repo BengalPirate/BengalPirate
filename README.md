@@ -8,8 +8,9 @@
 </p>
 
 <!--img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=BengalPirate.BengalPirate" /-->
-
-<img align="right" src="https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/>
+<a href="https://www.youtube.com/watch?v=dX3k_QDnzHE">
+  <img align="right" src="https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/>
+</a>
 <br>
 <a href="https://www.youtube.com/watch?v=wL8DVHuWI7Y">
   <img align="right" src="Bladerunner.jpg" alt="Bladerunner Image" width="50" height="50">
