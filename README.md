@@ -14,8 +14,11 @@
 </h1>
 
 <div align="center">
-  <picture> <img align=center src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width = 50px></picture> About me
+  <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
+    <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px" alt="About me">
+  </a>
 </div>
+
 
 <h3 align="center">A passionate full stack software developer, computer engineer and cybersecurity enthusiast</h3>
 
