@@ -11,7 +11,9 @@
 
 <img align="right" src="https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/>
 <br>
-<img align="right" src="Bladerunner.jpg" alt="Bladerunner Image" width="50" height="50">
+<a href="https://www.youtube.com/watch?v=wL8DVHuWI7Y">
+  <img align="right" src="Bladerunner.jpg" alt="Bladerunner Image" width="50" height="50">
+</a>
 
 <h1 align="center">
   <a href="https://www.youtube.com/watch?v=1JNmz17gnMw&list=RDWK2R6RNwHDY&index=2">
