@@ -83,11 +83,11 @@
 <br/>
 
 <h2 align="center">
-  <a href="https://www.youtube.com/watch?v=xKISdd2mKzU"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGZ1N29wZ2JtYWZsN3Q0ZWYxdHlwaTFueTA2c3dkdGF0MWJkdTVtcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xebOoxouppcGs/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a>
+  <a href="https://www.youtube.com/watch?v=xKISdd2mKzU"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGZ1N29wZ2JtYWZsN3Q0ZWYxdHlwaTFueTA2c3dkdGF0MWJkdTVtcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xebOoxouppcGs/giphy.gif" alt="GIF" style="width: 80px; height: 80px;"> </a>
   <a href ="https://www.youtube.com/watch?v=8nW4jypamrA"><img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> </a>
   Languages-Frameworks-Tools 
   <a href ="https://www.youtube.com/watch?v=8nW4jypamrA"><img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> </a>
-  <a href="https://www.youtube.com/watch?v=xKISdd2mKzU"><img src ="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTlvN29mNWdlYmY1eDR5Z3hoMWtybTdlNHdrZmJqaDd3ZXQ4MTY2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XTAqdwCL2oEus/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"></a>
+  <a href="https://www.youtube.com/watch?v=xKISdd2mKzU"><img src ="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTlvN29mNWdlYmY1eDR5Z3hoMWtybTdlNHdrZmJqaDd3ZXQ4MTY2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XTAqdwCL2oEus/giphy.gif" alt="GIF" style="width: 80px; height: 80px;"></a>
 </h2>
 
 <br/>
