@@ -33,7 +33,7 @@
 
 <div align="center">
 
- 🔭 I’m currently working on **1. A social media website and 2. An action rpg game for Android and iOS**
+ 🔭 I’m currently working on **1. A Cross Platform Medical EHR App and 2. An action rpg game for Android and iOS**
  
  🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting, and how to design PCBs**
  
