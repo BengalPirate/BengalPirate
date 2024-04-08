@@ -31,7 +31,7 @@ jobs:
       - name: Play chess
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAGES_PAT }}
           REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: |
           pip install -r requirements.txt
