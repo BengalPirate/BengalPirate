@@ -6,9 +6,7 @@ on:
 
 jobs:
   move:
-    permissions:
-      issues: write
-      contents: write
+    name: Play Chess
     runs-on: ubuntu-latest
     if: startsWith(github.event.issue.title, 'Chess:')
 
@@ -22,11 +20,6 @@ jobs:
           python-version: "3.10"
           architecture: "x64"
 
-      - name: Install Stockfish
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y stockfish
-        
       # Use pip to install the dependencies and then run the script
       - name: Play chess
         env:
@@ -48,3 +41,16 @@ jobs:
           git add .
           git commit -m "${ISSUE_TITLE} by ${ISSUE_AUTHOR}"
           git push
+
+      - name: Install stockfish
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y stockfish
+          echo STOCKFISH_PATH="$(which stockfish)" >> $GITHUB_ENV
+
+      - name: Run webhook
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: |
+          pip install -r requirements-webhook.txt
+          python webhook.py
