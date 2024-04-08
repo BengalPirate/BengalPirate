@@ -19,9 +19,11 @@
 
 <div align="center" style="display: flex; align-items: center; justify-content: center;">
   <div style="margin-right: 10px;">About Me</div>
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 40px; height: 40px;">
   <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
     <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px" alt="About me">
   </a>
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 40px; height: 40px;">
   <div style="margin-left: 10px;">(click the GIF right above for good music)</div>
 </div>
 
@@ -94,7 +96,7 @@
 </div>
 
 <div align="center">
-  <h2> <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> My Contributions <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </h2>
+  <h2> <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> My Contributions <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </h2>
   <br>
   <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/BengalPirate/BengalPirate/output/github-contribution-grid-snake.svg"/>
 
