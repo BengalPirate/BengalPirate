@@ -83,9 +83,9 @@
 <br/>
 
 <h2 align="center">
-  <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> 
+  <a href ="https://www.youtube.com/watch?v=Rwf8eS3isWk"><img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> </a>
   Languages-Frameworks-Tools 
-  <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;">
+  <a href ="https://www.youtube.com/watch?v=Rwf8eS3isWk"><img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> </a>
 </h2>
 
 <br/>
