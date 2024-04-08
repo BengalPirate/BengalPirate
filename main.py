@@ -1,5 +1,6 @@
 import re
 import os
+import os.path
 import sys
 import ast
 from enum import Enum
@@ -7,12 +8,12 @@ from datetime import datetime
 
 import chess
 import chess.pgn
-import chess.engine
 import yaml
 from github import Github
 
 import src.markdown as markdown
 import src.selftest as selftest
+import src.mockGithub as mockGithub
 
 # TODO: Use an image instead of a raw link to start new games
 
@@ -35,11 +36,7 @@ def update_top_moves(user):
 
     with open('data/top_moves.txt', 'w') as file:
         file.write(str(dictionary))
-    
-def get_ai_move(board):
-    with chess.engine.SimpleEngine.popen_uci("/usr/games/stockfish") as engine:
-        result = engine.play(board, chess.engine.Limit(time=0.1))
-        return result.move
+
 
 def update_last_moves(line):
     """Adds the given line to the last moves file"""
@@ -121,24 +118,9 @@ def main(issue, issue_author, repo_owner):
         for move in game.mainline_moves():
             gameboard.push(move)
 
-        if action[1][:2] == action[1][2:]:
-            issue.create_comment(settings['comments']['invalid_move'].format(author=issue_author, move=action[1]))
-            issue.edit(state='closed', labels=['Invalid'])
-            return False, 'ERROR: Move is invalid!'
-
         # Try to move with promotion to queen
         if chess.Move.from_uci(action[1] + 'q') in gameboard.legal_moves:
             action = (action[0], action[1] + 'q')
-            
-        # After player move, check if it's AI's turn
-        if gameboard.turn == chess.BLACK:  # Assuming AI plays as Black
-            ai_move = get_ai_move(gameboard)
-            gameboard.push(ai_move)
-
-            # Update GitHub issue, game state, etc.
-            issue.create_comment(f"AI moves {ai_move.uci()}")
-            update_last_moves(f"{ai_move.uci()}: AI")
-            # Plus any other required updates
 
         move = chess.Move.from_uci(action[1])
 
@@ -215,7 +197,7 @@ def main(issue, issue_author, repo_owner):
         readme = file.read()
         readme = replace_text_between(readme, settings['markers']['board'], '{chess_board}')
         readme = replace_text_between(readme, settings['markers']['moves'], '{moves_list}')
-        readme = replace_text_between(readme, settings['markers']['turn'], '{turn}')
+        readme = replace_text_between(readme, settings['markers']['turn'],  '{turn}')
         readme = replace_text_between(readme, settings['markers']['last_moves'], '{last_moves}')
         readme = replace_text_between(readme, settings['markers']['top_moves'], '{top_moves}')
 
