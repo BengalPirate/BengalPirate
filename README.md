@@ -118,7 +118,7 @@ Chess Match
 (work in progress, please ignore for now, trying to integrate A.I. properly as black)
 
 This is an open chess tournament where ANYONE can play. That's the fun part.  
-(All profile visitors play on a team for white vs A.I. for black)
+(All profile visitors play on a team for white and black)
 It's your turn to play! Move a <!-- BEGIN TURN -->black<!-- END TURN --> piece.
 
 <!-- BEGIN CHESS BOARD -->
