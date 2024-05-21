@@ -43,9 +43,9 @@
 
  🔭 I’m currently working on **1. A Cross Platform Medical EHR App and 2. An action rpg game for Android and iOS**
  
- 🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting, and how to design PCBs**
+ 🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting, and how to design PCBs as well as DevOps**
  
- 👯 I’m looking to collaborate on **An AR/VR Project for the the XReal Air 2 Ultra (once released)**
+ 👯 I’m looking to collaborate on **A Medical AR/VR Project for the the XReal Air 2 Ultra (once released)**
  
  🤔 I’m looking for help with **Leetcode 😭**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
