@@ -89,7 +89,7 @@
   <a href ="https://www.youtube.com/watch?v=8nW4jypamrA"><img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> </a>
   Languages-Frameworks-Tools 
   <a href ="https://www.youtube.com/watch?v=51iquRYKPbs"><img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Statistics.gif?raw=true" width="50px" style="vertical-align:middle;"> </a>
-  <a href="https://www.youtube.com/watch?v=Zn7h7-VKddw"><img src ="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTlvN29mNWdlYmY1eDR5Z3hoMWtybTdlNHdrZmJqaDd3ZXQ4MTY2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XTAqdwCL2oEus/giphy.gif" alt="GIF" style="width: 80px; height: 80px;"></a>
+  <a href="https://www.youtube.com/watch?v=z0EY-vQXRwc"><img src ="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTlvN29mNWdlYmY1eDR5Z3hoMWtybTdlNHdrZmJqaDd3ZXQ4MTY2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XTAqdwCL2oEus/giphy.gif" alt="GIF" style="width: 80px; height: 80px;"></a>
 </h2>
 
 <br/>
