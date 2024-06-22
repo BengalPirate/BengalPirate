@@ -27,7 +27,7 @@
     <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
       <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px" alt="About me">
     </a>
-    <a href="https://www.youtube.com/watch?v=CmwRQqJsegw&list=PLF42D0352FB78B009&index=5">
+    <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs">
       <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 60px; height: 60px;">
     </a>
   <div style="margin-left: 10px;">(click the GIFs for good music)</div>
