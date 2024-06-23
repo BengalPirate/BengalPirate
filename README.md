@@ -11,7 +11,9 @@
 
 <!-- <img align="right" src="https://komarev.com/ghpvc/?username=BengalPirate&label=Edgerunners&color=0e75b6&style=flat" alt=BengalPirate/> -->
 <br>
-<img align="left" alt="webdev" width="100" src="https://www.veropool.com/wp-content/uploads/2022/05/dancing-robot-2.gif">
+<a href="https://www.youtube.com/watch?v=ilLEuwH4hws">
+  <img align="left" alt="webdev" width="100" src="https://www.veropool.com/wp-content/uploads/2022/05/dancing-robot-2.gif">
+</a>
 <img align="right" src="Bladerunner.jpg" alt="Bladerunner Image" width="50" height="50">
 
 <h1 align="center">
