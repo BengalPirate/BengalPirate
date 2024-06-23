@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.youtube.com/watch?v=vpEIvRhW7NM">
-    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWtlcmVnMXNic3hoMjNmN2hqbjYzbnNubThwODc0ZzdseHhoaTg3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6v8Eh5MHAl7WP9A78Z/giphy.gif" alt="Video Walkthrough" height="250px">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWtlcmVnMXNic3hoMjNmN2hqbjYzbnNubThwODc0ZzdseHhoaTg3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6v8Eh5MHAl7WP9A78Z/giphy.gif" alt="Video" height="250px">
   </a>
   <a href="https://www.youtube.com/watch?v=vRbjpzdHqCw">
     <img src="https://i.imgur.com/0vgmLsY.gif" alt="Your Alt Text" height="250px" width="250px"> 
