@@ -14,7 +14,7 @@
 <a href="https://www.youtube.com/watch?v=elrjj7pWEIo">
   <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW1tOWJhd3k5cGl5dHB2aHE3dTVxdXhsZmI3aTd6enM4b3pvODN6MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/12Qzy9HV97y3vcPnhE/giphy.gif" align="left" alt="webdev" width="100">
 </a>
-<a href="https://www.youtube.com/watch?v=iKBCVZqqooY">
+<a href="https://www.youtube.com/watch?v=VJA43ZH4-Ak">
   <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2pwaDBna2pwZTA5dTFvMW5pdHQwM3NmanhrdjVvbjVxZzhib295YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lNLPKnfJU5YWz1pO0v/giphy.gif" align="right" alt="webdev" width="100">
 </a>
 
@@ -111,7 +111,7 @@
 </div>
 
 <div align="center">
-  <h2> <a href="https://www.youtube.com/watch?v=_OiQYA1l9c4"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTJoanh0Y2g0aXJrdnoxeHpnaG10b2o2cXZjamRmN3p0MXRodXA2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26uf7ScTyyojrKIqA/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a> <a href="https://www.youtube.com/watch?v=SLEnDqdqAsc"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a> My Contributions <a href="https://www.youtube.com/watch?v=BF3wM5Onh6c"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> <a href="https://www.youtube.com/watch?v=BXqblYbUAeI"> <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTJoanh0Y2g0aXJrdnoxeHpnaG10b2o2cXZjamRmN3p0MXRodXA2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26uf7ScTyyojrKIqA/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a> </h2>
+  <h2> <a href="https://www.youtube.com/watch?v=_OiQYA1l9c4"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTJoanh0Y2g0aXJrdnoxeHpnaG10b2o2cXZjamRmN3p0MXRodXA2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26uf7ScTyyojrKIqA/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a> <a href="https://www.youtube.com/watch?v=SLEnDqdqAsc"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a> My Contributions <a href="https://www.youtube.com/watch?v=iKBCVZqqooY"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjh1YnllcHA2a3Y5bTgwZTRpZGJqMGNqMDA4cTBsbGxuaWU4cXRtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPlCroSFHV8uoko/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> <a href="https://www.youtube.com/watch?v=BXqblYbUAeI"> <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTJoanh0Y2g0aXJrdnoxeHpnaG10b2o2cXZjamRmN3p0MXRodXA2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26uf7ScTyyojrKIqA/giphy.gif" alt="GIF" style="width: 40px; height: 40px;"> </a> </h2>
   <br>
   <a href= "https://www.youtube.com/watch?v=B7PnQBn5k_E">  
     <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/BengalPirate/BengalPirate/output/github-contribution-grid-snake.svg"/>
