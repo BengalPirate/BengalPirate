@@ -14,7 +14,11 @@
 <a href="https://www.youtube.com/watch?v=elrjj7pWEIo">
   <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW1tOWJhd3k5cGl5dHB2aHE3dTVxdXhsZmI3aTd6enM4b3pvODN6MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/12Qzy9HV97y3vcPnhE/giphy.gif" align="left" alt="webdev" width="100">
 </a>
-<img align="right" src="Bladerunner.jpg" alt="Bladerunner Image" width="50" height="50">
+<a href="https://www.youtube.com/watch?v=elrjj7pWEIo">
+  <img src="https://giphy.com/gifs/ConnectWise-cosmo-connectwise-lNLPKnfJU5YWz1pO0v" align="right" alt="webdev" width="100">
+</a>
+
+<!--<img align="right" src="Bladerunner.jpg" alt="Bladerunner Image" width="50" height="50">-->
 
 <h1 align="center">
   <a href="https://www.youtube.com/watch?v=1JNmz17gnMw&list=RDWK2R6RNwHDY&index=2">
