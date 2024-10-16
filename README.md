@@ -52,7 +52,7 @@
  
  🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting, and how to design PCBs as well as DevOps**
  
- 👯 I’m looking to collaborate on **A Medical AR/VR Project as well as A Social Media App for the the XReal Air 2 Ultra (once released)**
+ 👯 I’m looking to collaborate on **A Medical AR/VR Project as well as A Social Media App for the the XReal Air 2 Ultra**
  
  🤔 I’m looking for help with **Leetcode 😭**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
