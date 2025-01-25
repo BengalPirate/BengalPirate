@@ -103,9 +103,9 @@
 <div align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=git,py,cpp,java,c,html,css,javascript,kotlin,swift,dart"/><br>
-    <img src="https://skillicons.dev/icons?i=figma,vscode,androidstudio,vim,bash,powershell,flutter,fortran,r"/><br>
+    <img src="https://skillicons.dev/icons?i=figma,vscode,androidstudio,vim,bash,powershell,flutter,fortran,,csharp,r"/><br>
     <img src="https://skillicons.dev/icons?i=matlab,react,replit,raspberrypi,tensorflow,arduino,docker"/>
-    <img src="https://skillicons.dev/icons?i=godot,unity,unreal,ai,linux,csharp"/>
+    <img src="https://skillicons.dev/icons?i=godot,unity,unreal,ai,linux"/>
     <!-- <img src="https://skillicons.dev/icons?i=angular,aws,azure,blender,bsd,firebase,mongodb,go,gtk,haskell,jquery,mysql,node.js,php,postgres,rails,ruby,rust,sass,ts,"/>-->
   </a>
 </div>
