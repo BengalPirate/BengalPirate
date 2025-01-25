@@ -102,7 +102,7 @@
 <br/>
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,py,cpp,c sharp,java,c,html,css,javascript,kotlin,swift,dart"/><br>
+    <img src="https://skillicons.dev/icons?i=git,py,cpp,c_sharp,java,c,html,css,javascript,kotlin,swift,dart"/><br>
     <img src="https://skillicons.dev/icons?i=figma,vscode,androidstudio,vim,bash,powershell,flutter,fortran,r"/><br>
     <img src="https://skillicons.dev/icons?i=matlab,react,replit,raspberrypi,tensorflow,arduino,docker"/>
     <img src="https://skillicons.dev/icons?i=godot,unity,unreal,ai,linux"/>
