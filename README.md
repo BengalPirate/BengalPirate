@@ -48,17 +48,17 @@
 
 <div align="center">
 
- 🔭 I’m currently working on **1. A Cross Platform Medical EHR App and 2. An action rpg game**
+ 🔭 I’m currently working on **1. A Cross Platform Medical EHR App and 2. An Action RPG**
  
- 🌱 I’m currently learning **Reverse Engineering, Quantum Computing, and how to design PCBs**
+ 🌱 I’m currently learning **1. Reverse Engineering, 2. Quantum Computing, and 3. How To Design PCBs**
  
- 👯 I’m looking to collaborate on **A Social Media App for the the XReal Air 2 Ultra**
+ 👯 I’m looking to collaborate on **1. An Automated Cybersecurity System Using Security Onion With A.I. and 2. An Enterprise Version Of QubesOS**
  
- 🤔 I’m looking for help with **Leetcode 😭**
+ 🤔 I’m looking for help with **Leetcode Study Sessions 😭**
 
  📖 I would love to learn **Scala, Clojure, Haskell, Lua, Julia, and Perl**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
- ⚡ Fun fact: **Venus rotates so slowly that a day there is longer than a year on Earth**
+ ⚡ Fun fact: **Venus Rotates So Slowly That A Day There Is Longer Than A Year On Earth**
 
 </div>
 
