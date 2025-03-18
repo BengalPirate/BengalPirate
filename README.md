@@ -103,9 +103,9 @@
 <div align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=cpp,py,java,c,html,css,javascript,typescript,kotlin,swift,dart,ruby,cs,go,rust"/><br>
-    <img src="https://skillicons.dev/icons?i=git,aws,azure,cloudflare,mongodb,firebase,appwrite"/>
-    <img src="https://skillicons.dev/icons?i=figma,vscode,eclipse,androidstudio,vim,bash,powershell,fortran,r"/><br>
-    <img src="https://skillicons.dev/icons?i=matlab,octave,react,flutter,rails,replit,raspberrypi,tensorflow,arduino,docker,kubernetes,threejs"/>
+    <img src="https://skillicons.dev/icons?i=git,aws,azure,cloudflare,mongodb,firebase,appwrite,react,flutter,rails"/>
+    <img src="https://skillicons.dev/icons?i=figma,vscode,eclipse,androidstudio,vim,bash,powershell,fortran,r,matlab,octave"/><br>
+    <img src="https://skillicons.dev/icons?i=raspberrypi,tensorflow,arduino,docker,kubernetes,threejs"/>
     <img src="https://skillicons.dev/icons?i=godot,unity,unreal,blender,ai,autocad"/>
     <img src="https://skillicons.dev/icons?i=linux,redhat,debian,kali,arch,bsd,ros"/>
     <!-- <img src="https://skillicons.dev/icons?i=angular,aws,azure,blender,bsd,firebase,mongodb,go,gtk,haskell,jquery,mysql,node.js,php,postgres,rails,ruby,rust,sass,ts,"/>-->
