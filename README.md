@@ -56,7 +56,7 @@
  
  🤔 I’m looking for help with **Leetcode 😭**
 
- 📖 I would love to learn **Scala, Clojure, Haskell, Lua, Julia and Perl**
+ 📖 I would love to learn **Scala, Clojure, Haskell, Lua, Julia, and Perl**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
  ⚡ Fun fact: **Venus rotates so slowly that a day there is longer than a year on Earth**
 
