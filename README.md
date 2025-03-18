@@ -48,11 +48,11 @@
 
 <div align="center">
 
- 🔭 I’m currently working on **1. A Cross Platform Medical EHR App and 2. An action rpg game for Android and iOS**
+ 🔭 I’m currently working on **1. A Cross Platform Medical EHR App and 2. An action rpg game**
  
- 🌱 I’m currently learning **Flutter, React.js, Security+, Bash Scripting, and how to design PCBs as well as DevOps**
+ 🌱 I’m currently learning **Reverse Engineering, Quantum Computing, and how to design PCBs**
  
- 👯 I’m looking to collaborate on **A Medical AR/VR Project as well as A Social Media App for the the XReal Air 2 Ultra**
+ 👯 I’m looking to collaborate on **A Social Media App for the the XReal Air 2 Ultra**
  
  🤔 I’m looking for help with **Leetcode 😭**
 
