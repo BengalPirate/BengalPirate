@@ -102,9 +102,9 @@
 <br/>
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,py,cpp,java,c,html,css,javascript,typescript,kotlin,swift,dart,ruby,cs,go,rust"/><br>
-    <img src="https://skillicons.dev/icons?i=aws,azure,cloudflare,mongodb,firebase"/>
-    <img src="https://skillicons.dev/icons?i=figma,vscode,androidstudio,vim,bash,powershell,flutter,fortran,r"/><br>
+    <img src="https://skillicons.dev/icons?i=cpp,py,java,c,html,css,javascript,typescript,kotlin,swift,dart,ruby,cs,go,rust"/><br>
+    <img src="https://skillicons.dev/icons?i=git,aws,azure,cloudflare,mongodb,firebase"/>
+    <img src="https://skillicons.dev/icons?i=figma,vscode,eclipse,androidstudio,vim,bash,powershell,flutter,fortran,r"/><br>
     <img src="https://skillicons.dev/icons?i=matlab,octave,react,replit,raspberrypi,tensorflow,arduino,docker,rails,threejs"/>
     <img src="https://skillicons.dev/icons?i=godot,unity,unreal,blender,ai,autocad,linux"/>
     <img src="https://skillicons.dev/icons?i=redhat,debian,arch,bsd,"/>
