@@ -55,6 +55,8 @@
  👯 I’m looking to collaborate on **A Medical AR/VR Project as well as A Social Media App for the the XReal Air 2 Ultra**
  
  🤔 I’m looking for help with **Leetcode 😭**
+
+ 📖 I would love to learn **Scala, Clojure, Haskell, Lua and Perl**
   <!-- -- 💬 Ask me about ...              - 📫 How to reach me: ... - 😄 Pronouns: **he/him** -->
  ⚡ Fun fact: **Venus rotates so slowly that a day there is longer than a year on Earth**
 
