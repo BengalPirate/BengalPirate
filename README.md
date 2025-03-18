@@ -107,7 +107,7 @@
     <img src="https://skillicons.dev/icons?i=figma,vscode,eclipse,androidstudio,vim,bash,powershell,flutter,fortran,r"/><br>
     <img src="https://skillicons.dev/icons?i=matlab,octave,react,replit,raspberrypi,tensorflow,arduino,docker,rails,threejs"/>
     <img src="https://skillicons.dev/icons?i=godot,unity,unreal,blender,ai,autocad,linux"/>
-    <img src="https://skillicons.dev/icons?i=redhat,debian,arch,bsd,"/>
+    <img src="https://skillicons.dev/icons?i=redhat,debian,kali,arch,bsd,"/>
     <!-- <img src="https://skillicons.dev/icons?i=angular,aws,azure,blender,bsd,firebase,mongodb,go,gtk,haskell,jquery,mysql,node.js,php,postgres,rails,ruby,rust,sass,ts,"/>-->
   </a>
 </div>
