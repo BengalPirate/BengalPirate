@@ -44,7 +44,7 @@
 
 <!-- radar-start -->
 <p align="center">
-  <img src="generated/cyber_radar.png" width="250" alt="Cyber Skill Radar">
+  <img src="generated/cyber_radar.png" width="500" alt="Cyber Skill Radar">
 </p>
 
 > Overall progress: 0.0% of the cert list (0/122).  
