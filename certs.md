@@ -2,7 +2,7 @@
 
 Network Security
 
-- [ ] CompTIA Network+
+- [x] CompTIA Network+
 
 - [ ] Cisco Certified Network Associate (CCNA)
 - [ ] Cisco Certified Network Professional - Enterprise (CCNP - E)
@@ -45,7 +45,7 @@ Architecture and Engineering
 
 Security and Risk Management
 
-- [ ] CompTIA Security+
+- [x] CompTIA Security+
 - [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
       
 - [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
