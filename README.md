@@ -47,9 +47,9 @@
   <img src="generated/cyber_radar.gif" width="250" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 17.2% of the cert list (21/122).
-> Strongest region: Yellow Team (Software Security, 41.7% of that track complete).
-> “Learning to pivot... literally and figuratively.” – Robot
+> Overall progress: 22.1% of the cert list (27/122).
+> Build is well-balanced across White Team, Yellow Team, and Blue Team.
+> “Up-and-coming cyber warrior.” – Robot
 <!-- radar-end -->
 
 
