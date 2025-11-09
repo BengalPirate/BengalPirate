@@ -1,18 +1,28 @@
+#!/usr/bin/env python3
 import re
 import math
 from pathlib import Path
 import io
 
+import matplotlib
+matplotlib.use("Agg")  # safe for GitHub Actions / headless
 import matplotlib.pyplot as plt
 import numpy as np
 import imageio.v2 as imageio
 import textwrap
 
+# ---------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parents[1]
 CERTS_FILE = ROOT / "certs.md"
 README_FILE = ROOT / "README.md"
 OUTPUT_DIR = ROOT / "generated"
 OUTPUT_IMG = OUTPUT_DIR / "cyber_radar.gif"
+
+# ---------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------
 
 # Headings MUST match your certs.md exactly
 SECTIONS = [
@@ -47,8 +57,13 @@ TEAM_LABELS = {
     "Network Security": "Orange Team",
 }
 
+# ---------------------------------------------------------------------
+# Parsing & scoring
+# ---------------------------------------------------------------------
+
 
 def parse_certs():
+    """Parse certs.md and count total / completed certs per section."""
     stats = {s: {"total": 0, "done": 0} for s in SECTIONS}
     current = None
 
@@ -72,6 +87,11 @@ def parse_certs():
 
 
 def compute_scores(stats):
+    """
+    For each section:
+      score = done / total * 100  (per-track normalization)
+    Also compute overall progress across all certs.
+    """
     scores = []
     total_done = 0
     total_all = 0
@@ -87,6 +107,11 @@ def compute_scores(stats):
 
     overall = 0.0 if total_all == 0 else (total_done / total_all) * 100.0
     return scores, overall
+
+
+# ---------------------------------------------------------------------
+# Quote logic
+# ---------------------------------------------------------------------
 
 
 def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
@@ -140,14 +165,12 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
         vibe = "“This guy is world class.” – Robot"
 
     # ---------- specialization / balance line ----------
-    # Convert section_scores (0–100) to 0–1 fractions
     fractions = [s / 100.0 for s in section_scores]
     active_indices = [i for i, f in enumerate(fractions) if f > 0]
 
     if not active_indices:
         spec = "No dominant region yet – radar is empty."
     else:
-        # sort indices by completion fraction
         ranked = sorted(active_indices, key=lambda i: fractions[i], reverse=True)
         top = ranked[0]
         top_frac = fractions[top]
@@ -155,7 +178,6 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
         top_team = TEAM_LABELS[top_section]
 
         second_frac = fractions[ranked[1]] if len(ranked) > 1 else 0.0
-        # “balanced” if top and second are within 10 percentage points
         balanced_gap = abs(top_frac - second_frac)
 
         if len(ranked) > 2:
@@ -164,15 +186,12 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
             third_frac = 0.0
 
         if balanced_gap < 0.10 and top_frac > 0.15:
-            # balanced build across top 2–3 regions
             teams = []
             for idx in ranked[:3]:
                 if fractions[idx] <= 0:
                     continue
-                sec = SECTIONS[idx]
-                teams.append(TEAM_LABELS[sec])
-
-            teams = list(dict.fromkeys(teams))  # remove duplicates, preserve order
+                teams.append(TEAM_LABELS[SECTIONS[idx]])
+            teams = list(dict.fromkeys(teams))
 
             if len(teams) == 1:
                 spec = f"Build is focused on {teams[0]}."
@@ -189,7 +208,6 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
                 f"({top_section}, {top_frac*100:.1f}% of that track complete)."
             )
 
-    # ---------- assemble multi-line quote ----------
     lines = [
         f"Overall progress: {pct:.1f}% of the cert list ({done}/{total}).",
         spec,
@@ -197,7 +215,13 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
     ]
     return "\n".join(lines)
 
-def hex_to_rgb(hex_color):
+
+# ---------------------------------------------------------------------
+# Color helpers
+# ---------------------------------------------------------------------
+
+
+def hex_to_rgb(hex_color: str):
     """Convert #RRGGBB to (r, g, b) in 0–1 range."""
     hex_color = hex_color.lstrip("#")
     return tuple(int(hex_color[i:i+2], 16) / 255.0 for i in (0, 2, 4))
@@ -208,12 +232,20 @@ def blend_rgb(c1, c2, t=0.5):
     return tuple((1 - t) * a + t * b for a, b in zip(c1, c2))
 
 
+# ---------------------------------------------------------------------
+# Animated radar
+# ---------------------------------------------------------------------
+
+
 def make_radar(scores):
+    """
+    Build an animated, pulsing radar GIF with gradient sectors
+    between adjacent axes.
+    """
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     num_vars = len(SECTIONS)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    # convert section colors to RGB once
     section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
 
     frames = []
@@ -222,7 +254,7 @@ def make_radar(scores):
     for frame in range(n_frames):
         # smooth breathing scale (0.9–1.1 of real value)
         phase = 2 * math.pi * frame / n_frames
-        scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))
+        scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))  # 0.9–1.1
         scaled_scores = [min(s * scale, 100.0) for s in scores]
 
         scores_loop = scaled_scores + scaled_scores[:1]
@@ -242,9 +274,15 @@ def make_radar(scores):
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
+        # make grid lines slightly dimmer so colors pop
+        for gridline in ax.yaxis.get_gridlines():
+            gridline.set_color("#555555")
+        for gridline in ax.xaxis.get_gridlines():
+            gridline.set_color("#555555")
+
         # ---- colored triangular sectors between axes ----
-        # Each sector is a triangle: center + axis i + axis i+1
-        glow_alpha = 0.25 + 0.15 * (0.5 * (1 + math.sin(phase)))
+        glow_alpha = 0.28 + 0.18 * (0.5 * (1 + math.sin(phase)))  # a bit stronger
+
         for i in range(num_vars):
             j = (i + 1) % num_vars
             r_i = scaled_scores[i]
@@ -252,11 +290,11 @@ def make_radar(scores):
             theta_i = angles[i]
             theta_j = angles[j]
 
-            # Blend the team colors at the boundary between these two axes
             c_i = section_rgbs[i]
             c_j = section_rgbs[j]
             rgb = blend_rgb(c_i, c_j, 0.5)
 
+            # two triangles forming the sector between axes i and j
             ax.fill(
                 [theta_i, theta_j, theta_i],
                 [0, 0, r_i],
@@ -272,9 +310,10 @@ def make_radar(scores):
                 edgecolor="none",
             )
 
-        # radar polygon outline (static color, still “breathes” in radius)
+        # radar polygon outline
         ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.8)
-        ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.12)
+        # subtle interior fill, so colors still dominate
+        ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.06)
 
         # ---- outer labels, safely outside circle ----
         label_radius = 110
@@ -315,7 +354,13 @@ def make_radar(scores):
 
         # Save this frame to an in-memory PNG and read as an array
         buf = io.BytesIO()
-        fig.savefig(buf, format="png", dpi=120, bbox_inches="tight", transparent=True)
+        fig.savefig(
+            buf,
+            format="png",
+            dpi=120,
+            bbox_inches="tight",
+            transparent=True,
+        )
         buf.seek(0)
         img = imageio.imread(buf)
         frames.append(img)
@@ -323,9 +368,15 @@ def make_radar(scores):
         plt.close(fig)
 
     # Save all frames as an animated GIF, loop forever
-    imageio.mimsave(OUTPUT_IMG, frames, duration=0.08, loop=0)
+    imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
 
-def update_readme(quote):
+
+# ---------------------------------------------------------------------
+# README update
+# ---------------------------------------------------------------------
+
+
+def update_readme(quote: str):
     readme = README_FILE.read_text(encoding="utf-8")
 
     pattern = re.compile(
@@ -333,7 +384,6 @@ def update_readme(quote):
         re.DOTALL,
     )
 
-    # Turn each line of the quote into a Markdown blockquote line
     block = "\n".join(f"> {line}" for line in quote.splitlines())
 
     replacement = (
@@ -349,18 +399,20 @@ def update_readme(quote):
     README_FILE.write_text(new_readme, encoding="utf-8")
 
 
+# ---------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------
 
 
 def main():
     stats = parse_certs()
-    scores, overall = compute_scores(stats)   # real 0–100% per section
+    scores, overall = compute_scores(stats)
     total_done = sum(v["done"] for v in stats.values())
     total_all = sum(v["total"] for v in stats.values())
 
     quote = pick_quote(overall, total_done, total_all, scores)
-    make_radar(scores)        # pass raw percentages
+    make_radar(scores)
     update_readme(quote)
-
 
 
 if __name__ == "__main__":
