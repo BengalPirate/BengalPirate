@@ -43,12 +43,15 @@
 ## Cyber Skill Radar
 
 <!-- radar-start -->
-![Cyber Skill Radar](generated/cyber_radar.png)
+<p align="center">
+  <img src="generated/cyber_radar.png" width="250" alt="Cyber Skill Radar">
+</p>
 
-> Overall progress: 0.0% of the cert list (0/122).
-> No dominant region yet – radar is empty.
+> Overall progress: 0.0% of the cert list (0/122).  
+> No dominant region yet – radar is empty.  
 > “This guy is a noob.” – Robot
 <!-- radar-end -->
+
 
 
 <h3 align="center">A passionate full stack software developer, computer engineer and cybersecurity enthusiast</h3>
