@@ -341,7 +341,7 @@ def update_readme(quote: str):
     replacement = (
         "<!-- radar-start -->\n"
         '<p align="center">\n'
-        '  <img src="generated/cyber_radar.gif" width="250" alt="Cyber Skill Radar">\n'
+        '  <img src="generated/cyber_radar.gif" width="550" alt="Cyber Skill Radar">\n'
         "</p>\n\n"
         f"{block}\n"
         "<!-- radar-end -->"
