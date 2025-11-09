@@ -87,11 +87,6 @@ def parse_certs():
 
 
 def compute_scores(stats):
-    """
-    For each section:
-      score = done / total * 100  (per-track normalization)
-    Also compute overall progress across all certs.
-    """
     scores = []
     total_done = 0
     total_all = 0
@@ -235,12 +230,100 @@ def blend_rgb(c1, c2, t=0.5):
 # ---------------------------------------------------------------------
 
 def make_radar(scores):
-    """
-    Radar chart:
-    - Crisp text and clean lines (high-DPI)
-    - Lime-green rhombus fills, no waviness
-    - No color blending, no phantom shading
-    """
+    OUTPUT_DIR.mkdir(exist_ok=True)
+
+    num_vars = len(SECTIONS)
+    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
+    base_scores = [max(0.0, min(100.0, s)) for s in scores]
+
+    # Font clarity
+    matplotlib.rcParams.update({
+        "font.sans-serif": ["DejaVu Sans"],
+        "font.family": "sans-serif",
+        "text.antialiased": True,
+        "axes.linewidth": 0.6,
+    })
+
+    lime_rgb = (0.0, 1.0, 0.5)
+    frames = []
+    n_frames = 1  # static image (no animation)
+
+    for frame in range(n_frames):
+        fig, ax = plt.subplots(subplot_kw=dict(polar=True))
+        fig.set_size_inches(5, 5)
+        ax.set_theta_offset(math.pi / 2)
+        ax.set_theta_direction(-1)
+        ax.set_xticks(angles)
+        ax.set_xticklabels([])
+
+        ax.set_ylim(0, 100)
+        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
+
+        fig.patch.set_facecolor("#111111")
+        ax.set_facecolor("#111111")
+
+        for g in ax.yaxis.get_gridlines():
+            g.set_color("#555555")
+            g.set_linewidth(0.6)
+        for g in ax.xaxis.get_gridlines():
+            g.set_color("#555555")
+            g.set_linewidth(0.6)
+
+        # ----------------------------------------
+        # Draw filled polygon using Cartesian coords
+        # ----------------------------------------
+        filled_points = []
+        for i in range(num_vars):
+            if base_scores[i] > 0:
+                filled_points.append((angles[i], base_scores[i]))
+
+        if len(filled_points) >= 2:
+            # Add closing point to form shape
+            angles_filled = [p[0] for p in filled_points] + [filled_points[0][0]]
+            radius_filled = [p[1] for p in filled_points] + [filled_points[0][1]]
+            # Convert to Cartesian to ensure straight lines
+            xy = np.array([[r * math.cos(t), r * math.sin(t)]
+                          for t, r in zip(angles_filled, radius_filled)])
+            ax.fill(xy[:, 0], xy[:, 1],
+                    color=lime_rgb, alpha=0.45, edgecolor="none")
+
+        # Outline
+        angles_loop = angles + [angles[0]]
+        base_scores_loop = base_scores + [base_scores[0]]
+        ax.plot(angles_loop, base_scores_loop,
+                color="#00FF80", linewidth=1.8, alpha=0.9)
+
+        # Labels
+        label_radius = 110
+        for angle, section in zip(angles, SECTIONS):
+            text = "\n".join(textwrap.wrap(section, 12))
+            if angle == 0:
+                ha = "center"
+            elif 0 < angle < math.pi:
+                ha = "left"
+            else:
+                ha = "right"
+            ax.text(angle, label_radius, text,
+                    ha=ha, va="center", color="white", fontsize=7,
+                    fontweight="bold")
+
+        ax.set_title("Cyber Team Spectrum",
+                     pad=18, color="white", fontsize=12, fontweight="bold")
+
+        for label in ax.get_yticklabels():
+            label.set_color("gray")
+            label.set_fontsize(6)
+
+        plt.tight_layout()
+        buf = io.BytesIO()
+        fig.savefig(buf, format="png", dpi=300,
+                    bbox_inches="tight", transparent=True)
+        buf.seek(0)
+        frames.append(imageio.imread(buf))
+        plt.close(fig)
+
+    imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
+
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     num_vars = len(SECTIONS)
