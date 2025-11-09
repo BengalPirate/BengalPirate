@@ -45,7 +45,9 @@
 <!-- radar-start -->
 ![Cyber Skill Radar](generated/cyber_radar.png)
 
-> "This guy is a noob" – Robot
+> Overall progress: 0.0% of the cert list (0/122).
+> No dominant region yet – radar is empty.
+> “This guy is a noob.” – Robot
 <!-- radar-end -->
 
 
