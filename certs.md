@@ -45,13 +45,13 @@ Architecture and Engineering
 
 Security and Risk Management
 
-- [ ] CompTIA Security+
-- [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
+- [x] CompTIA Security+
+- [x] Mile2 Certified Healthcare Information Systems Security Practitoner
       
-- [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
-- [ ] ISACA Certified Data Privacy Solutions Engineer (CDPSE)
-- [ ] ISACA Certified in Risk and Information Systems Control (CRISC)
-- [ ] CompTIA SecOT+
+- [x] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
+- [x] ISACA Certified Data Privacy Solutions Engineer (CDPSE)
+- [x] ISACA Certified in Risk and Information Systems Control (CRISC)
+- [x] CompTIA SecOT+
       
 - [ ] CompTIA SecurityX
 - [ ] GIAC Security Professsional (GSP)
