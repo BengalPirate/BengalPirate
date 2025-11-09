@@ -236,160 +236,90 @@ def blend_rgb(c1, c2, t=0.5):
 
 def make_radar(scores):
     """
-    Animated radar:
-
-    - Each axis is 0–100% of that track.
-    - If an axis is 0%, it contributes *no color at all*.
-    - Color only appears in triangular patches between two adjacent
-      axes that BOTH have > 0% (center + point_i + point_j).
-    - The triangle shape never changes size; only its brightness
-      (alpha) pulses.
+    Radar chart using a single lime-green color for all filled areas.
+    Rhombus-like sections form between adjacent active axes.
+    No color blending or per-team hues.
     """
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     num_vars = len(SECTIONS)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
-
-    # Clamp scores to [0, 100] and keep them fixed across frames
     base_scores = [max(0.0, min(100.0, s)) for s in scores]
-    base_scores_loop = base_scores + base_scores[:1]
-    angles_loop = angles + angles[:1]
 
     frames = []
-    n_frames = 24  # frames per pulse cycle
+    n_frames = 24  # keep for slight glow; set to 1 for static
 
     for frame in range(n_frames):
         phase = 2 * math.pi * frame / n_frames
-
-        # Pulse only by alpha (brightness), NOT by changing radius
-        tri_alpha = 0.20 + 0.20 * (0.5 * (1 + math.sin(phase)))   # 0.20–0.40
-        poly_alpha = 0.04 + 0.06 * (0.5 * (1 + math.sin(phase)))  # 0.04–0.10
+        glow_alpha = 0.25 + 0.15 * (0.5 * (1 + math.sin(phase)))  # soft pulse
+        lime_rgb = (0.0, 1.0, 0.5)  # lime-green RGB (≈ #00FF80)
 
         fig, ax = plt.subplots(subplot_kw=dict(polar=True))
         fig.set_size_inches(4.5, 4.5)
-
-        # Polar orientation
         ax.set_theta_offset(math.pi / 2)
         ax.set_theta_direction(-1)
-
         ax.set_xticks(angles)
         ax.set_xticklabels([])
 
         ax.set_ylim(0, 100)
         ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
-        # Dark background
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
-        # Slightly dim grid so colors pop
-        for gridline in ax.yaxis.get_gridlines():
-            gridline.set_color("#555555")
-        for gridline in ax.xaxis.get_gridlines():
-            gridline.set_color("#555555")
+        for g in ax.yaxis.get_gridlines():
+            g.set_color("#555555")
+        for g in ax.xaxis.get_gridlines():
+            g.set_color("#555555")
 
-        # ---------------------------------------------------------
-        #  Triangles ONLY between adjacent axes that both have > 0
-        #  Triangle = center + point on axis i + point on axis j
-        #  => no shading on any track that is at 0%.
-        # ---------------------------------------------------------
+        # ------------------ LIME GREEN RHOMBUSES ------------------
         for i in range(num_vars):
             j = (i + 1) % num_vars
-
-            r_i = base_scores[i]
-            r_j = base_scores[j]
-
-            # If either side is zero, skip – no color in that sector
+            r_i, r_j = base_scores[i], base_scores[j]
             if r_i <= 0.0 or r_j <= 0.0:
                 continue
 
-            theta_i = angles[i]
-            theta_j = angles[j]
+            theta_i, theta_j = angles[i], angles[j]
+            midpoint_r = (r_i + r_j) / 2
+            midpoint_theta = (theta_i + theta_j) / 2
 
-            # Blend the two team colors for the shared triangle
-            rgb = blend_rgb(section_rgbs[i], section_rgbs[j], 0.5)
-
-            # Single triangle: center → axis i point → axis j point
             ax.fill(
-                [theta_i, theta_j, theta_i],
-                [r_i,     r_j,     0],
-                color=rgb,
-                alpha=tri_alpha,
+                [theta_i, midpoint_theta, theta_j, theta_i],
+                [r_i, midpoint_r, r_j, 0],
+                color=lime_rgb,
+                alpha=glow_alpha,
                 edgecolor="none",
             )
 
-        # ---------------------------------------------------------
-        #  Polygon outline showing your normalized shape
-        #  (shape is fixed; only alpha pulses very subtly)
-        # ---------------------------------------------------------
-        ax.plot(
-            angles_loop,
-            base_scores_loop,
-            color="#FFFFFF",
-            linewidth=1.8,
-            alpha=0.7,
-        )
-        ax.fill(
-            angles_loop,
-            base_scores_loop,
-            color="#888888",
-            alpha=poly_alpha,
-        )
+        # Outline
+        angles_loop = angles + [angles[0]]
+        base_scores_loop = base_scores + [base_scores[0]]
+        ax.plot(angles_loop, base_scores_loop, color="#00FF80", linewidth=1.8, alpha=0.9)
 
-        # ---------------------------------------------------------
-        #  Labels – outside the circle, no overlap
-        # ---------------------------------------------------------
+        # Labels
         label_radius = 110
         for angle, section in zip(angles, SECTIONS):
             text = "\n".join(textwrap.wrap(section, 12))
-
             if angle == 0:
                 ha = "center"
             elif 0 < angle < math.pi:
                 ha = "left"
             else:
                 ha = "right"
+            ax.text(angle, label_radius, text, ha=ha, va="center", color="white", fontsize=6)
 
-            ax.text(
-                angle,
-                label_radius,
-                text,
-                ha=ha,
-                va="center",
-                color="white",
-                fontsize=6,
-            )
-
-        ax.set_title(
-            "Cyber Team Spectrum",
-            pad=18,
-            color="white",
-            fontsize=11,
-            fontweight="bold",
-        )
-
+        ax.set_title("Cyber Team Spectrum", pad=18, color="white", fontsize=11, fontweight="bold")
         for label in ax.get_yticklabels():
             label.set_color("gray")
             label.set_fontsize(6)
 
         plt.tight_layout()
-
-        # Render this frame to an in-memory PNG and store as array
         buf = io.BytesIO()
-        fig.savefig(
-            buf,
-            format="png",
-            dpi=120,
-            bbox_inches="tight",
-            transparent=True,
-        )
+        fig.savefig(buf, format="png", dpi=120, bbox_inches="tight", transparent=True)
         buf.seek(0)
         frames.append(imageio.imread(buf))
-
         plt.close(fig)
 
-    # GIF that loops forever
     imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
 
 
