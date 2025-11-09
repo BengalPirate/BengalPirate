@@ -47,9 +47,9 @@
   <img src="generated/cyber_radar.gif" width="250" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 13.1% of the cert list (16/122).
-> Build is balanced between Blue Team and Red Team.
-> “Finally figured out what nmap does.” – Robot
+> Overall progress: 17.2% of the cert list (21/122).
+> Strongest region: Yellow Team (Software Security, 41.7% of that track complete).
+> “Learning to pivot... literally and figuratively.” – Robot
 <!-- radar-end -->
 
 
