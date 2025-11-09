@@ -47,8 +47,8 @@
   <img src="generated/cyber_radar.gif" width="250" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 13.9% of the cert list (17/122).
-> Build is well-balanced across Blue Team, Red Team, and White Team.
+> Overall progress: 13.1% of the cert list (16/122).
+> Build is balanced between Blue Team and Red Team.
 > “Finally figured out what nmap does.” – Robot
 <!-- radar-end -->
 
