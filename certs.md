@@ -2,40 +2,40 @@
 
 Network Security
 
-- [x] CompTIA Network+
+- [ ] CompTIA Network+
 
-- [x] Cisco Certified Network Associate (CCNA)
-- [x] Cisco Certified Network Professional - Enterprise (CCNP - E)
-- [x] Cisco Certified Network Professional - Security (CCNP - S)
+- [ ] Cisco Certified Network Associate (CCNA)
+- [ ] Cisco Certified Network Professional - Enterprise (CCNP - E)
+- [ ] Cisco Certified Network Professional - Security (CCNP - S)
       
-- [x] Cisco Certified Design Expert (CCDE)
-- [x] Cisco Certified Internetwork Expert (CCIE)
-- [x] Microsoft Certified Azure Network Engineer
-- [x] Google Professional Cloud Network Engineer
-- [x] Amazon Web Services Certified Advanced Networking Specialty
+- [ ] Cisco Certified Design Expert (CCDE)
+- [ ] Cisco Certified Internetwork Expert (CCIE)
+- [ ] Microsoft Certified Azure Network Engineer
+- [ ] Google Professional Cloud Network Engineer
+- [ ] Amazon Web Services Certified Advanced Networking Specialty
 
 Architecture and Engineering
 
-- [x] CompTIA A+
-- [x] Amazon Web Services Certified Cloud Practitoner
-- [x] Microsoft Certified Azure Fundamentals
-- [x] CompTIA Cloud+
-- [x] Google Associate Cloud Engineer
-- [x] CompTIA Server+
-- [x] CompTIA Linux+
+- [ ] CompTIA A+
+- [ ] Amazon Web Services Certified Cloud Practitoner
+- [ ] Microsoft Certified Azure Fundamentals
+- [ ] CompTIA Cloud+
+- [ ] Google Associate Cloud Engineer
+- [ ] CompTIA Server+
+- [ ] CompTIA Linux+
       
-- [x] Google Professional Cloud Security Engineer
-- [x] Microsoft Certified Azure Administrator Associate
-- [x] CompTIA SecAI+
-- [x] Amazon Web Services Certified Solutions Architect - Associate
-- [x] Microsoft Certified Azure Security Engineer Associate
-- [x] Amazon Web Services Certified Security - Specialty
-- [x] ISC2 Certified Cloud Security Professional (CCSP)
-- [x] Red Hat Certified System Administrator (RHCSA)
-- [x] GIAC Certified Windows System Administrator (GCWN)
-- [x] GIAC Response and Industrial Defense (GRID)
+- [ ] Google Professional Cloud Security Engineer
+- [ ] Microsoft Certified Azure Administrator Associate
+- [ ] CompTIA SecAI+
+- [ ] Amazon Web Services Certified Solutions Architect - Associate
+- [ ] Microsoft Certified Azure Security Engineer Associate
+- [ ] Amazon Web Services Certified Security - Specialty
+- [ ] ISC2 Certified Cloud Security Professional (CCSP)
+- [ ] Red Hat Certified System Administrator (RHCSA)
+- [ ] GIAC Certified Windows System Administrator (GCWN)
+- [ ] GIAC Response and Industrial Defense (GRID)
       
-- [x] GIAC Cloud Threat Detection (GCTD)
+- [ ] GIAC Cloud Threat Detection (GCTD)
 - [ ] Google Professional Cloud Architect
 - [ ] Microsoft Certified Azure Solutions Architect Expert
 - [ ] Amazon Web Services Certified Solutions Architect Professional
@@ -92,13 +92,13 @@ Software Security
 
 Forensics and Incident Handling
 
-- [ ] Mosse Institute Certified OSINT Expert (MOIS)
-- [ ] Mosse Institute Certified OSINT Expert (MOIS)
-- [ ] EC Council Certified SOC Analyst (CSA)
-- [ ] EC Council Certified Threat Intelligence Analyst (CTIA)
-- [ ] CompTIA CySA+
-- [ ] GIAC Open Source Intelligence Certification (GOSI)
-- [ ] Offensive Security SEC - 100 Cybersecurity Essentials (OSCC-SEC)
+- [x] Mosse Institute Certified OSINT Expert (MOIS)
+- [x] Mosse Institute Certified OSINT Expert (MOIS)
+- [x] EC Council Certified SOC Analyst (CSA)
+- [x] EC Council Certified Threat Intelligence Analyst (CTIA)
+- [x] CompTIA CySA+
+- [x] GIAC Open Source Intelligence Certification (GOSI)
+- [x] Offensive Security SEC - 100 Cybersecurity Essentials (OSCC-SEC)
       
 - [ ] Offensive Security IR - 200 Foundational Incident Response (OSIR)
 - [ ] IntelTechniques Open Source Intelligence Professional (OSIP)
@@ -120,15 +120,15 @@ Forensics and Incident Handling
 
 Penetration Testing and Exploitation
 
-- [ ] CompTIA Pentest+
-- [ ] EC Council Certified Ethical Hacker  (CEH)
-- [ ] Mosse Institute Vulnerability Research and Exploitation Specialist (MVRE)
-- [ ] TCM Security Practical IoT Pentest Associate (PIPA)
-- [ ] INE Junior Penetration Tester (eJPT)
-- [ ] INE Mobile Application Penetration Tester (eMAPT)
-- [ ] Mile2 Certified Powershell Hacker (C - PSH)
-- [ ] TCM Security Practical Junior Penetration Tester (PJPT)
-- [ ] Offensive Security PEN - 103 Kali Linux Revealed (KLCP)
+- [x] CompTIA Pentest+
+- [x] EC Council Certified Ethical Hacker  (CEH)
+- [x] Mosse Institute Vulnerability Research and Exploitation Specialist (MVRE)
+- [x] TCM Security Practical IoT Pentest Associate (PIPA)
+- [x] INE Junior Penetration Tester (eJPT)
+- [x] INE Mobile Application Penetration Tester (eMAPT)
+- [x] Mile2 Certified Powershell Hacker (C - PSH)
+- [x] TCM Security Practical Junior Penetration Tester (PJPT)
+- [x] Offensive Security PEN - 103 Kali Linux Revealed (KLCP)
       
 - [ ] INE Certified Professional Penetration Tester (eCPPT)
 - [ ] HackTheBox Certified Bug Bounty Hunter (HTB CBBH)
