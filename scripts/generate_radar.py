@@ -1,5 +1,6 @@
 import re
 import math
+import textwrap
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -198,35 +199,35 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
 def make_radar(scores):
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    labels = SECTIONS
+    # wrap long labels for readability
+    def wrap_label(label, width=16):
+        return "\n".join(textwrap.wrap(label, width))
+
+    labels = [wrap_label(l) for l in SECTIONS]
     num_vars = len(labels)
 
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
     scores_loop = scores + scores[:1]
     angles_loop = angles + angles[:1]
 
-    # colors in the same order as SECTIONS
     colors = [TEAM_COLORS[s] for s in SECTIONS]
 
     fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-    # slightly smaller figure; GitHub will still render it nicely
-    fig.set_size_inches(4, 4)
+    fig.set_size_inches(4, 4)  # smaller figure for GitHub display
 
     ax.set_theta_offset(math.pi / 2)
     ax.set_theta_direction(-1)
 
-    # smaller theta labels
-    ax.set_thetagrids(np.degrees(angles), labels, fontsize=7)
-
+    # smaller fonts for readability
+    ax.set_thetagrids(np.degrees(angles), labels, fontsize=7, fontweight="medium")
     ax.set_ylim(0, 100)
-    # smaller radial labels
     ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
     # background
     fig.patch.set_facecolor("#111111")
     ax.set_facecolor("#111111")
 
-    # colored wedges per axis
+    # color wedges
     for i, score in enumerate(scores):
         color = colors[i]
         ax.fill(
@@ -237,16 +238,18 @@ def make_radar(scores):
             edgecolor="none",
         )
 
-    # polygon outline
+    # radar polygon
     ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
     ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
 
-    ax.set_title("Cyber Team Spectrum", pad=15, color="white", fontsize=10)
+    # title
+    ax.set_title("Cyber Team Spectrum", pad=15, color="white", fontsize=10, fontweight="bold")
 
-    # fine-tune tick label sizes/colors
+    # tick label color tweaks
     for label in ax.get_xticklabels():
         label.set_color("white")
         label.set_fontsize(7)
+        label.set_fontweight("medium")
     for label in ax.get_yticklabels():
         label.set_color("gray")
         label.set_fontsize(6)
