@@ -195,16 +195,15 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
     ]
     return "\n".join(lines)
 
-
 def make_radar(scores):
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    # wrap long labels for readability
-    def wrap_label(label, width=16):
+    # Wrap long labels into multiple lines for readability
+    def wrap_label(label, width=12):
         return "\n".join(textwrap.wrap(label, width))
 
-    labels = [wrap_label(l) for l in SECTIONS]
-    num_vars = len(labels)
+    wrapped_labels = [wrap_label(l) for l in SECTIONS]
+    num_vars = len(wrapped_labels)
 
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
     scores_loop = scores + scores[:1]
@@ -213,13 +212,18 @@ def make_radar(scores):
     colors = [TEAM_COLORS[s] for s in SECTIONS]
 
     fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-    fig.set_size_inches(4, 4)  # smaller figure for GitHub display
+    # Slightly bigger canvas so multi-line labels fit cleanly
+    fig.set_size_inches(4.5, 4.5)
 
     ax.set_theta_offset(math.pi / 2)
     ax.set_theta_direction(-1)
 
-    # smaller fonts for readability
-    ax.set_thetagrids(np.degrees(angles), labels, fontsize=7, fontweight="medium")
+    # Use wrapped labels + smaller font
+    ax.set_thetagrids(np.degrees(angles), wrapped_labels, fontsize=7, fontweight="medium")
+
+    # Push labels a bit farther out from the center for extra breathing room
+    ax.tick_params(axis="x", pad=10)
+
     ax.set_ylim(0, 100)
     ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
@@ -227,7 +231,7 @@ def make_radar(scores):
     fig.patch.set_facecolor("#111111")
     ax.set_facecolor("#111111")
 
-    # color wedges
+    # colored wedges
     for i, score in enumerate(scores):
         color = colors[i]
         ax.fill(
@@ -242,14 +246,14 @@ def make_radar(scores):
     ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
     ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
 
-    # title
-    ax.set_title("Cyber Team Spectrum", pad=15, color="white", fontsize=10, fontweight="bold")
+    ax.set_title("Cyber Team Spectrum", pad=18, color="white", fontsize=11, fontweight="bold")
 
-    # tick label color tweaks
+    # tick label styling
     for label in ax.get_xticklabels():
         label.set_color("white")
         label.set_fontsize(7)
         label.set_fontweight("medium")
+
     for label in ax.get_yticklabels():
         label.set_color("gray")
         label.set_fontsize(6)
@@ -257,7 +261,6 @@ def make_radar(scores):
     plt.tight_layout()
     fig.savefig(OUTPUT_IMG, dpi=150, bbox_inches="tight", transparent=True)
     plt.close(fig)
-
 
 
 def update_readme(quote):
