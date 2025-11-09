@@ -327,13 +327,14 @@ def update_readme(quote):
 
 def main():
     stats = parse_certs()
-    scores, overall = compute_scores(stats)
+    scores, overall = compute_scores(stats)   # real 0–100% per section
     total_done = sum(v["done"] for v in stats.values())
     total_all = sum(v["total"] for v in stats.values())
 
     quote = pick_quote(overall, total_done, total_all, scores)
-    make_radar(scores)
+    make_radar(scores)        # pass raw percentages
     update_readme(quote)
+
 
 
 if __name__ == "__main__":
