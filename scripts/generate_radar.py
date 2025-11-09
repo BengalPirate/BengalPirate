@@ -230,13 +230,22 @@ def blend_rgb(c1, c2, t=0.5):
 # ---------------------------------------------------------------------
 
 def make_radar(scores):
+    """
+    Radar chart:
+    - Each axis is 0–100%.
+    - Only axes with >0% contribute to filled area.
+    - For each adjacent pair of non-zero axes, draw a single lime triangle:
+      center -> axis i point -> axis j point.
+    - The union of triangles gives a clean filled shape with straight edges.
+    - No weird breathing / animation; just a static high-DPI GIF (1 frame).
+    """
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     num_vars = len(SECTIONS)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
     base_scores = [max(0.0, min(100.0, s)) for s in scores]
 
-    # Font clarity
+    # Use a crisp sans-serif font
     matplotlib.rcParams.update({
         "font.sans-serif": ["DejaVu Sans"],
         "font.family": "sans-serif",
@@ -245,193 +254,120 @@ def make_radar(scores):
     })
 
     lime_rgb = (0.0, 1.0, 0.5)
-    frames = []
-    n_frames = 1  # static image (no animation)
 
-    for frame in range(n_frames):
-        fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-        fig.set_size_inches(5, 5)
-        ax.set_theta_offset(math.pi / 2)
-        ax.set_theta_direction(-1)
-        ax.set_xticks(angles)
-        ax.set_xticklabels([])
+    # ---- build figure (one frame) ----
+    fig, ax = plt.subplots(subplot_kw=dict(polar=True))
+    fig.set_size_inches(5, 5)  # bigger canvas => crisper text
 
-        ax.set_ylim(0, 100)
-        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
+    ax.set_theta_offset(math.pi / 2)
+    ax.set_theta_direction(-1)
+    ax.set_xticks(angles)
+    ax.set_xticklabels([])
 
-        fig.patch.set_facecolor("#111111")
-        ax.set_facecolor("#111111")
+    ax.set_ylim(0, 100)
+    ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
-        for g in ax.yaxis.get_gridlines():
-            g.set_color("#555555")
-            g.set_linewidth(0.6)
-        for g in ax.xaxis.get_gridlines():
-            g.set_color("#555555")
-            g.set_linewidth(0.6)
+    fig.patch.set_facecolor("#111111")
+    ax.set_facecolor("#111111")
 
-        # ----------------------------------------
-        # Draw filled polygon using Cartesian coords
-        # ----------------------------------------
-        filled_points = []
-        for i in range(num_vars):
-            if base_scores[i] > 0:
-                filled_points.append((angles[i], base_scores[i]))
+    # make grid lines slightly dimmer
+    for g in ax.yaxis.get_gridlines():
+        g.set_color("#555555")
+        g.set_linewidth(0.6)
+    for g in ax.xaxis.get_gridlines():
+        g.set_color("#555555")
+        g.set_linewidth(0.6)
 
-        if len(filled_points) >= 2:
-            # Add closing point to form shape
-            angles_filled = [p[0] for p in filled_points] + [filled_points[0][0]]
-            radius_filled = [p[1] for p in filled_points] + [filled_points[0][1]]
-            # Convert to Cartesian to ensure straight lines
-            xy = np.array([[r * math.cos(t), r * math.sin(t)]
-                          for t, r in zip(angles_filled, radius_filled)])
-            ax.fill(xy[:, 0], xy[:, 1],
-                    color=lime_rgb, alpha=0.45, edgecolor="none")
+    # ----------------------------------------------------
+    # Filled triangles between adjacent non-zero axes only
+    # center -> (angle_i, r_i) -> (angle_j, r_j)
+    # ----------------------------------------------------
+    for i in range(num_vars):
+        j = (i + 1) % num_vars
+        r_i, r_j = base_scores[i], base_scores[j]
 
-        # Outline
-        angles_loop = angles + [angles[0]]
-        base_scores_loop = base_scores + [base_scores[0]]
-        ax.plot(angles_loop, base_scores_loop,
-                color="#00FF80", linewidth=1.8, alpha=0.9)
+        # if either axis has no progress, skip this wedge
+        if r_i <= 0.0 or r_j <= 0.0:
+            continue
 
-        # Labels
-        label_radius = 110
-        for angle, section in zip(angles, SECTIONS):
-            text = "\n".join(textwrap.wrap(section, 12))
-            if angle == 0:
-                ha = "center"
-            elif 0 < angle < math.pi:
-                ha = "left"
-            else:
-                ha = "right"
-            ax.text(angle, label_radius, text,
-                    ha=ha, va="center", color="white", fontsize=7,
-                    fontweight="bold")
+        theta_i, theta_j = angles[i], angles[j]
 
-        ax.set_title("Cyber Team Spectrum",
-                     pad=18, color="white", fontsize=12, fontweight="bold")
+        # A triangle in polar coordinates:
+        #   (theta_i, 0) center at axis i
+        #   (theta_i, r_i) point on axis i
+        #   (theta_j, r_j) point on axis j
+        ax.fill(
+            [theta_i, theta_i, theta_j],
+            [0,        r_i,    r_j],
+            color=lime_rgb,
+            alpha=0.45,
+            edgecolor="none",
+        )
 
-        for label in ax.get_yticklabels():
-            label.set_color("gray")
-            label.set_fontsize(6)
+    # ----------------------------------------------------
+    # Outline polygon through all axes (including zeros)
+    # ----------------------------------------------------
+    angles_loop = angles + [angles[0]]
+    base_scores_loop = base_scores + [base_scores[0]]
+    ax.plot(
+        angles_loop,
+        base_scores_loop,
+        color="#00FF80",
+        linewidth=1.8,
+        alpha=0.9,
+    )
 
-        plt.tight_layout()
-        buf = io.BytesIO()
-        fig.savefig(buf, format="png", dpi=300,
-                    bbox_inches="tight", transparent=True)
-        buf.seek(0)
-        frames.append(imageio.imread(buf))
-        plt.close(fig)
+    # ----------------------------------------------------
+    # Labels
+    # ----------------------------------------------------
+    label_radius = 110  # just outside max radius (100)
+    for angle, section in zip(angles, SECTIONS):
+        text = "\n".join(textwrap.wrap(section, 12))
+        if angle == 0:
+            ha = "center"
+        elif 0 < angle < math.pi:
+            ha = "left"
+        else:
+            ha = "right"
+        ax.text(
+            angle,
+            label_radius,
+            text,
+            ha=ha,
+            va="center",
+            color="white",
+            fontsize=7,
+            fontweight="bold",
+        )
 
-    imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
+    ax.set_title(
+        "Cyber Team Spectrum",
+        pad=25,
+        color="white",
+        fontsize=12,
+        fontweight="bold",
+    )
 
-    OUTPUT_DIR.mkdir(exist_ok=True)
+    for label in ax.get_yticklabels():
+        label.set_color("gray")
+        label.set_fontsize(6)
 
-    num_vars = len(SECTIONS)
-    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    base_scores = [max(0.0, min(100.0, s)) for s in scores]
+    plt.tight_layout()
 
-    # use a crisp sans-serif font for readability
-    matplotlib.rcParams.update({
-        "font.sans-serif": ["DejaVu Sans"],
-        "font.family": "sans-serif",
-        "text.antialiased": True,
-        "axes.linewidth": 0.6,
-    })
+    # ---- save as a 1-frame GIF (GitHub still displays it) ----
+    buf = io.BytesIO()
+    fig.savefig(
+        buf,
+        format="png",
+        dpi=300,               # high DPI for crisp text
+        bbox_inches="tight",
+        transparent=True,
+    )
+    buf.seek(0)
+    img = imageio.imread(buf)
+    plt.close(fig)
 
-    frames = []
-    n_frames = 24
-
-    for frame in range(n_frames):
-        phase = 2 * math.pi * frame / n_frames
-        glow_alpha = 0.28 + 0.10 * (0.5 * (1 + math.sin(phase)))
-        lime_rgb = (0.0, 1.0, 0.5)
-
-        fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-        fig.set_size_inches(5, 5)  # slightly larger = higher resolution render
-        ax.set_theta_offset(math.pi / 2)
-        ax.set_theta_direction(-1)
-        ax.set_xticks(angles)
-        ax.set_xticklabels([])
-
-        ax.set_ylim(0, 100)
-        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
-
-        fig.patch.set_facecolor("#111111")
-        ax.set_facecolor("#111111")
-
-        for g in ax.yaxis.get_gridlines():
-            g.set_color("#555555")
-            g.set_linewidth(0.6)
-        for g in ax.xaxis.get_gridlines():
-            g.set_color("#555555")
-            g.set_linewidth(0.6)
-
-        # -----------------------------------------
-        # Straight-edge rhombus fill between axes
-        # -----------------------------------------
-        for i in range(num_vars):
-            j = (i + 1) % num_vars
-            r_i, r_j = base_scores[i], base_scores[j]
-            if r_i <= 0.0 or r_j <= 0.0:
-                continue
-
-            theta_i, theta_j = angles[i], angles[j]
-            midpoint_r = (r_i + r_j) / 2
-            midpoint_theta = (theta_i + theta_j) / 2
-
-            # Create a polygon in (theta,r) → convert to Cartesian
-            points = [
-                (theta_i, r_i),
-                (midpoint_theta, midpoint_r),
-                (theta_j, r_j),
-                (theta_i, 0),
-            ]
-            # convert polar to Cartesian for perfectly straight fill
-            xy = np.array([
-                [r * math.cos(t), r * math.sin(t)] for t, r in points
-            ])
-            ax.fill(xy[:, 0], xy[:, 1],
-                    color=lime_rgb, alpha=glow_alpha,
-                    edgecolor="none")
-
-        # outline
-        angles_loop = angles + [angles[0]]
-        base_scores_loop = base_scores + [base_scores[0]]
-        ax.plot(angles_loop, base_scores_loop,
-                color="#00FF80", linewidth=1.8, alpha=0.9)
-
-        # labels
-        label_radius = 110
-        for angle, section in zip(angles, SECTIONS):
-            text = "\n".join(textwrap.wrap(section, 12))
-            if angle == 0:
-                ha = "center"
-            elif 0 < angle < math.pi:
-                ha = "left"
-            else:
-                ha = "right"
-            ax.text(angle, label_radius, text,
-                    ha=ha, va="center", color="white", fontsize=7,
-                    fontweight="bold", path_effects=[])
-
-        ax.set_title("Cyber Team Spectrum",
-                     pad=18, color="white", fontsize=12, fontweight="bold")
-
-        for label in ax.get_yticklabels():
-            label.set_color("gray")
-            label.set_fontsize(6)
-
-        plt.tight_layout()
-
-        buf = io.BytesIO()
-        # export at high DPI for crisp text
-        fig.savefig(buf, format="png", dpi=300,
-                    bbox_inches="tight", transparent=True)
-        buf.seek(0)
-        frames.append(imageio.imread(buf))
-        plt.close(fig)
-
-    imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
+    imageio.mimsave(OUTPUT_IMG, [img], duration=0.1, loop=0)
 
 
 # ---------------------------------------------------------------------
