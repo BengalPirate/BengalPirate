@@ -237,10 +237,9 @@ def blend_rgb(c1, c2, t=0.5):
 def make_radar(scores):
     """
     Animated radar:
-    - Fixed shape (no radius scaling)
-    - Colors pulse by brightness (alpha)
-    - Gradient between adjacent axes
-    - No bleed into empty sectors
+    - Shape is fixed (no radius scaling, no alpha-based "thickness" illusion).
+    - Angular gradient between adjacent axes (e.g., orange -> green).
+    - Subtle color pulsing via brightness only.
     """
     OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -248,63 +247,128 @@ def make_radar(scores):
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
     section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
 
+    # Fixed radii for the whole animation
     base_scores = [max(0.0, min(100.0, s)) for s in scores]
     base_scores_loop = base_scores + base_scores[:1]
     angles_loop = angles + angles[:1]
 
     frames = []
-    n_frames = 24
+    n_frames = 24          # frames per pulse cycle
+    n_grad_steps = 32      # more steps = smoother gradient
 
     for frame in range(n_frames):
         phase = 2 * math.pi * frame / n_frames
-        glow_alpha = 0.10 + 0.35 * (0.5 * (1 + math.sin(phase)))
-        poly_alpha = 0.03 + 0.07 * (0.5 * (1 + math.sin(phase)))
+
+        # brightness pulse (not radius, not alpha)
+        brightness = 0.85 + 0.15 * (0.5 * (1 + math.sin(phase)))  # 0.85–1.0
 
         fig, ax = plt.subplots(subplot_kw=dict(polar=True))
         fig.set_size_inches(4.5, 4.5)
+
+        # polar setup
         ax.set_theta_offset(math.pi / 2)
         ax.set_theta_direction(-1)
         ax.set_xticks(angles)
         ax.set_xticklabels([])
+
         ax.set_ylim(0, 100)
         ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
+
+        # dark background
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
+        # dim grid
         for gridline in ax.yaxis.get_gridlines():
             gridline.set_color("#555555")
         for gridline in ax.xaxis.get_gridlines():
             gridline.set_color("#555555")
 
-        # --- gradient wedges between axes ---
+        # -------- gradient wedges between axes (fixed shape) --------
         for i in range(num_vars):
             j = (i + 1) % num_vars
-            r_i, r_j = base_scores[i], base_scores[j]
-            if r_i <= 0 or r_j <= 0:
+
+            r_i = base_scores[i]
+            r_j = base_scores[j]
+
+            # if neither track has any progress, don't paint this wedge
+            if r_i <= 0.0 and r_j <= 0.0:
                 continue
 
-            theta_i, theta_j = angles[i], angles[j]
-            rgb = blend_rgb(section_rgbs[i], section_rgbs[j], 0.5)
+            theta_i = angles[i]
+            theta_j = angles[j]
 
-            ax.fill([theta_i, theta_j, theta_i],
-                    [0, 0, r_i],
-                    color=rgb, alpha=glow_alpha, edgecolor="none")
-            ax.fill([theta_j, theta_j, theta_i],
-                    [0, r_j, r_i],
-                    color=rgb, alpha=glow_alpha, edgecolor="none")
+            # slice wedge into thin angular strips
+            for k in range(n_grad_steps):
+                t0 = k / n_grad_steps
+                t1 = (k + 1) / n_grad_steps
 
+                theta0 = theta_i + (theta_j - theta_i) * t0
+                theta1 = theta_i + (theta_j - theta_i) * t1
+
+                # radius along the polygon edge between the two axes
+                r0 = r_i + (r_j - r_i) * t0
+                r1 = r_i + (r_j - r_i) * t1
+
+                # color for this strip: interpolate axis colors, then brighten
+                base_rgb = blend_rgb(section_rgbs[i], section_rgbs[j], t0)
+                rgb = tuple(min(1.0, c * brightness) for c in base_rgb)
+
+                # two small triangles to fill this strip
+                ax.fill(
+                    [theta0, theta1, theta0],
+                    [0, 0, r0],
+                    color=rgb,
+                    alpha=0.9,          # constant alpha
+                    edgecolor="none",
+                )
+                ax.fill(
+                    [theta1, theta1, theta0],
+                    [0, r1, r0],
+                    color=rgb,
+                    alpha=0.9,
+                    edgecolor="none",
+                )
+
+        # -------- static polygon outline & very faint interior --------
         ax.plot(angles_loop, base_scores_loop, color="#FFFFFF", linewidth=1.8)
-        ax.fill(angles_loop, base_scores_loop, color="#888888", alpha=poly_alpha)
+        ax.fill(
+            angles_loop,
+            base_scores_loop,
+            color="#FFFFFF",
+            alpha=0.02,  # so faint it won't look like it's "breathing"
+        )
 
+        # -------- labels outside the circle --------
         label_radius = 110
         for angle, section in zip(angles, SECTIONS):
             text = "\n".join(textwrap.wrap(section, 12))
-            ha = "center" if angle == 0 else ("left" if 0 < angle < math.pi else "right")
-            ax.text(angle, label_radius, text,
-                    ha=ha, va="center", color="white", fontsize=6)
 
-        ax.set_title("Cyber Team Spectrum",
-                     pad=18, color="white", fontsize=11, fontweight="bold")
+            if 0 < angle < math.pi:
+                ha = "left"
+            elif angle > math.pi:
+                ha = "right"
+            else:
+                ha = "center"
+
+            ax.text(
+                angle,
+                label_radius,
+                text,
+                ha=ha,
+                va="center",
+                color="white",
+                fontsize=6,
+                fontweight="medium",
+            )
+
+        ax.set_title(
+            "Cyber Team Spectrum",
+            pad=18,
+            color="white",
+            fontsize=11,
+            fontweight="bold",
+        )
 
         for label in ax.get_yticklabels():
             label.set_color("gray")
@@ -313,11 +377,18 @@ def make_radar(scores):
         plt.tight_layout()
 
         buf = io.BytesIO()
-        fig.savefig(buf, format="png", dpi=120, bbox_inches="tight", transparent=True)
+        fig.savefig(
+            buf,
+            format="png",
+            dpi=120,
+            bbox_inches="tight",
+            transparent=True,
+        )
         buf.seek(0)
         frames.append(imageio.imread(buf))
         plt.close(fig)
 
+    # Loop forever
     imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
 
 
