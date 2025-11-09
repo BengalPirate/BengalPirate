@@ -47,9 +47,9 @@
   <img src="generated/cyber_radar.gif" width="550" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 20.5% of the cert list (25/122).
-> Strongest region: Purple Team (Assessment and Testing, 57.1% of that track complete).
-> “Up-and-coming cyber warrior.” – Robot
+> Overall progress: 2.5% of the cert list (3/122).
+> Strongest region: Orange Team (Network Security, 11.1% of that track complete).
+> “Fresh out the tutorial zone.” – Robot
 <!-- radar-end -->
 
 
