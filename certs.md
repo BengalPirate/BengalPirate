@@ -16,9 +16,9 @@ Network Security
 
 Architecture and Engineering
 
-- [ ] CompTIA A+
-- [ ] Amazon Web Services Certified Cloud Practitoner
-- [ ] Microsoft Certified Azure Fundamentals
+- [x] CompTIA A+
+- [x] Amazon Web Services Certified Cloud Practitoner
+- [x] Microsoft Certified Azure Fundamentals
 - [ ] CompTIA Cloud+
 - [ ] Google Associate Cloud Engineer
 - [ ] CompTIA Server+
