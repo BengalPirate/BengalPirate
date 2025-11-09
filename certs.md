@@ -2,7 +2,7 @@
 
 Network Security
 
-- [ ] CompTIA Network+
+- [x] CompTIA Network+
 
 - [ ] Cisco Certified Network Associate (CCNA)
 - [ ] Cisco Certified Network Professional - Enterprise (CCNP - E)
@@ -16,7 +16,7 @@ Network Security
 
 Architecture and Engineering
 
-- [ ] CompTIA A+
+- [x] CompTIA A+
 - [ ] Amazon Web Services Certified Cloud Practitoner
 - [ ] Microsoft Certified Azure Fundamentals
 - [ ] CompTIA Cloud+
@@ -45,7 +45,7 @@ Architecture and Engineering
 
 Security and Risk Management
 
-- [ ] CompTIA Security+
+- [x] CompTIA Security+
 - [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
       
 - [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
@@ -63,11 +63,11 @@ Security and Risk Management
 
 Assessment and Testing
 
-- [x] OCEG Governance Risk and Compliance Professional (GRCP)
-- [x] OCEG Governance Risk and Compliance Auditor (GRCA)
+- [ ] OCEG Governance Risk and Compliance Professional (GRCP)
+- [ ] OCEG Governance Risk and Compliance Auditor (GRCA)
       
-- [x] GIAC Certified Intrusion Analyst Certification (GCIA)
-- [x] GIAC Mobile Device Security Analyst (GMOB)
+- [ ] GIAC Certified Intrusion Analyst Certification (GCIA)
+- [ ] GIAC Mobile Device Security Analyst (GMOB)
       
 - [ ] ISACA Certified Information Systems Auditor (CISA)
 - [ ] PCI Qualified Security Assessor (PCI DSS QSA)
@@ -75,12 +75,12 @@ Assessment and Testing
 
 Software Security
 
-- [x] SECO Secure Programming Foundation (S - SPF)
-- [x] Mosse Institute Certified Application Security Engineer (MASE)
-- [x] SecOps Group Certified AppSec Practitoner (CAP)
-- [x] Offensive Security SJD -100 Secure Java Development Essentials (OSCC-SJD)
+- [ ] SECO Secure Programming Foundation (S - SPF)
+- [ ] Mosse Institute Certified Application Security Engineer (MASE)
+- [ ] SecOps Group Certified AppSec Practitoner (CAP)
+- [ ] Offensive Security SJD -100 Secure Java Development Essentials (OSCC-SJD)
       
-- [x] GIAC Machine Learning Engineer (GMLE)
+- [ ] GIAC Machine Learning Engineer (GMLE)
 - [ ] EC Council Certified Application Security Engineer (CASE)
 - [ ] ISC2 Certified Secure Software Lifecycle Professional (CSSLP)
 - [ ] GIAC Certified Web Application Defender (GWEB)
@@ -92,13 +92,13 @@ Software Security
 
 Forensics and Incident Handling
 
-- [x] Mosse Institute Certified OSINT Expert (MOIS)
-- [x] Mosse Institute Certified OSINT Expert (MOIS)
-- [x] EC Council Certified SOC Analyst (CSA)
-- [x] EC Council Certified Threat Intelligence Analyst (CTIA)
-- [x] CompTIA CySA+
-- [x] GIAC Open Source Intelligence Certification (GOSI)
-- [x] Offensive Security SEC - 100 Cybersecurity Essentials (OSCC-SEC)
+- [ ] Mosse Institute Certified OSINT Expert (MOIS)
+- [ ] Mosse Institute Certified OSINT Expert (MOIS)
+- [ ] EC Council Certified SOC Analyst (CSA)
+- [ ] EC Council Certified Threat Intelligence Analyst (CTIA)
+- [ ] CompTIA CySA+
+- [ ] GIAC Open Source Intelligence Certification (GOSI)
+- [ ] Offensive Security SEC - 100 Cybersecurity Essentials (OSCC-SEC)
       
 - [ ] Offensive Security IR - 200 Foundational Incident Response (OSIR)
 - [ ] IntelTechniques Open Source Intelligence Professional (OSIP)
@@ -120,15 +120,15 @@ Forensics and Incident Handling
 
 Penetration Testing and Exploitation
 
-- [x] CompTIA Pentest+
-- [x] EC Council Certified Ethical Hacker  (CEH)
-- [x] Mosse Institute Vulnerability Research and Exploitation Specialist (MVRE)
-- [x] TCM Security Practical IoT Pentest Associate (PIPA)
-- [x] INE Junior Penetration Tester (eJPT)
-- [x] INE Mobile Application Penetration Tester (eMAPT)
-- [x] Mile2 Certified Powershell Hacker (C - PSH)
-- [x] TCM Security Practical Junior Penetration Tester (PJPT)
-- [x] Offensive Security PEN - 103 Kali Linux Revealed (KLCP)
+- [ ] CompTIA Pentest+
+- [ ] EC Council Certified Ethical Hacker  (CEH)
+- [ ] Mosse Institute Vulnerability Research and Exploitation Specialist (MVRE)
+- [ ] TCM Security Practical IoT Pentest Associate (PIPA)
+- [ ] INE Junior Penetration Tester (eJPT)
+- [ ] INE Mobile Application Penetration Tester (eMAPT)
+- [ ] Mile2 Certified Powershell Hacker (C - PSH)
+- [ ] TCM Security Practical Junior Penetration Tester (PJPT)
+- [ ] Offensive Security PEN - 103 Kali Linux Revealed (KLCP)
       
 - [ ] INE Certified Professional Penetration Tester (eCPPT)
 - [ ] HackTheBox Certified Bug Bounty Hunter (HTB CBBH)
