@@ -197,23 +197,32 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
     ]
     return "\n".join(lines)
 
+def hex_to_rgb(hex_color):
+    """Convert #RRGGBB to (r, g, b) in 0–1 range."""
+    hex_color = hex_color.lstrip("#")
+    return tuple(int(hex_color[i:i+2], 16) / 255.0 for i in (0, 2, 4))
+
+
+def blend_rgb(c1, c2, t=0.5):
+    """Blend two RGB tuples."""
+    return tuple((1 - t) * a + t * b for a, b in zip(c1, c2))
+
+
 def make_radar(scores):
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    labels = SECTIONS
-    num_vars = len(labels)
-
-    # angles for each axis
+    num_vars = len(SECTIONS)
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    colors = [TEAM_COLORS[s] for s in SECTIONS]
+    # convert section colors to RGB once
+    section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
 
     frames = []
-    n_frames = 24  # number of frames in one glow cycle
+    n_frames = 24  # frames per pulse cycle
 
     for frame in range(n_frames):
-        # smooth breathing effect (0.9x ↔ 1.1x)
+        # smooth breathing scale (0.9–1.1 of real value)
         phase = 2 * math.pi * frame / n_frames
-        scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))  # 0.9–1.1
+        scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))
         scaled_scores = [min(s * scale, 100.0) for s in scores]
 
         scores_loop = scaled_scores + scaled_scores[:1]
@@ -222,38 +231,53 @@ def make_radar(scores):
         fig, ax = plt.subplots(subplot_kw=dict(polar=True))
         fig.set_size_inches(4.5, 4.5)
 
-        # polar orientation: 0 at top, clockwise
         ax.set_theta_offset(math.pi / 2)
         ax.set_theta_direction(-1)
-
-        # ticks but no default labels (we draw our own)
         ax.set_xticks(angles)
         ax.set_xticklabels([])
 
         ax.set_ylim(0, 100)
         ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
-        # background
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
-        # colored wedges per axis with glowing alpha
-        base_alpha = 0.25 + 0.15 * (0.5 * (1 + math.sin(phase)))
-        for i, score in enumerate(scaled_scores):
+        # ---- colored triangular sectors between axes ----
+        # Each sector is a triangle: center + axis i + axis i+1
+        glow_alpha = 0.25 + 0.15 * (0.5 * (1 + math.sin(phase)))
+        for i in range(num_vars):
+            j = (i + 1) % num_vars
+            r_i = scaled_scores[i]
+            r_j = scaled_scores[j]
+            theta_i = angles[i]
+            theta_j = angles[j]
+
+            # Blend the team colors at the boundary between these two axes
+            c_i = section_rgbs[i]
+            c_j = section_rgbs[j]
+            rgb = blend_rgb(c_i, c_j, 0.5)
+
             ax.fill(
-                [angles[i], angles[i]],
-                [0, score],
-                color=colors[i],
-                alpha=base_alpha,
+                [theta_i, theta_j, theta_i],
+                [0, 0, r_i],
+                color=rgb,
+                alpha=glow_alpha,
+                edgecolor="none",
+            )
+            ax.fill(
+                [theta_j, theta_j, theta_i],
+                [0, r_j, r_i],
+                color=rgb,
+                alpha=glow_alpha,
                 edgecolor="none",
             )
 
-        # radar polygon
-        ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
-        ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
+        # radar polygon outline (static color, still “breathes” in radius)
+        ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.8)
+        ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.12)
 
-        # custom outer labels outside the circle
-        label_radius = 110  # > max radius (100)
+        # ---- outer labels, safely outside circle ----
+        label_radius = 110
         for angle, section in zip(angles, SECTIONS):
             text = "\n".join(textwrap.wrap(section, 12))
 
@@ -289,7 +313,7 @@ def make_radar(scores):
 
         plt.tight_layout()
 
-        # Render this frame to an in-memory PNG and read as array
+        # Save this frame to an in-memory PNG and read as an array
         buf = io.BytesIO()
         fig.savefig(buf, format="png", dpi=120, bbox_inches="tight", transparent=True)
         buf.seek(0)
@@ -298,9 +322,8 @@ def make_radar(scores):
 
         plt.close(fig)
 
-    # Save all frames as an animated GIF
-    imageio.mimsave(OUTPUT_IMG, frames, duration=0.08)  # ~12.5 fps
-
+    # Save all frames as an animated GIF, loop forever
+    imageio.mimsave(OUTPUT_IMG, frames, duration=0.08, loop=0)
 
 def update_readme(quote):
     readme = README_FILE.read_text(encoding="utf-8")
