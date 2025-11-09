@@ -236,11 +236,11 @@ def blend_rgb(c1, c2, t=0.5):
 
 def make_radar(scores):
     """
-    Animated radar where:
-    - Each axis is normalized 0–100% from cert counts (scores).
-    - Shape is fixed (no radius scaling).
-    - Colors pulse by brightness (alpha) only.
-    - Gradient sectors appear only between axes that both have >0%.
+    Animated radar:
+    - Fixed shape (no radius scaling)
+    - Colors pulse by brightness (alpha)
+    - Gradient between adjacent axes
+    - No bleed into empty sectors
     """
     OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -248,111 +248,63 @@ def make_radar(scores):
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
     section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
 
-    # Fixed radii (no per-frame scaling)
     base_scores = [max(0.0, min(100.0, s)) for s in scores]
     base_scores_loop = base_scores + base_scores[:1]
     angles_loop = angles + angles[:1]
 
     frames = []
-    n_frames = 24  # frames per pulse cycle
+    n_frames = 24
 
     for frame in range(n_frames):
         phase = 2 * math.pi * frame / n_frames
-
-        # Pulse by brightness only
-        glow_alpha = 0.10 + 0.35 * (0.5 * (1 + math.sin(phase)))  # 0.10–0.45
-        poly_alpha = 0.03 + 0.07 * (0.5 * (1 + math.sin(phase)))  # 0.03–0.10
+        glow_alpha = 0.10 + 0.35 * (0.5 * (1 + math.sin(phase)))
+        poly_alpha = 0.03 + 0.07 * (0.5 * (1 + math.sin(phase)))
 
         fig, ax = plt.subplots(subplot_kw=dict(polar=True))
         fig.set_size_inches(4.5, 4.5)
-
         ax.set_theta_offset(math.pi / 2)
         ax.set_theta_direction(-1)
         ax.set_xticks(angles)
         ax.set_xticklabels([])
-
         ax.set_ylim(0, 100)
         ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
-
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
-        # Dim grid so colors stand out
         for gridline in ax.yaxis.get_gridlines():
             gridline.set_color("#555555")
         for gridline in ax.xaxis.get_gridlines():
             gridline.set_color("#555555")
 
-        # ---- colored gradient sectors BETWEEN axes ----
-        # Only draw if BOTH adjacent axes have >0% progress
+        # --- gradient wedges between axes ---
         for i in range(num_vars):
             j = (i + 1) % num_vars
-
-            r_i = base_scores[i]
-            r_j = base_scores[j]
-
-            if r_i <= 0.0 or r_j <= 0.0:
-                # If either side is empty, don't draw the wedge,
-                # so no color bleeds into untouched tracks.
+            r_i, r_j = base_scores[i], base_scores[j]
+            if r_i <= 0 or r_j <= 0:
                 continue
 
-            theta_i = angles[i]
-            theta_j = angles[j]
+            theta_i, theta_j = angles[i], angles[j]
+            rgb = blend_rgb(section_rgbs[i], section_rgbs[j], 0.5)
 
-            c_i = section_rgbs[i]
-            c_j = section_rgbs[j]
-            rgb = blend_rgb(c_i, c_j, 0.5)  # midpoint color
+            ax.fill([theta_i, theta_j, theta_i],
+                    [0, 0, r_i],
+                    color=rgb, alpha=glow_alpha, edgecolor="none")
+            ax.fill([theta_j, theta_j, theta_i],
+                    [0, r_j, r_i],
+                    color=rgb, alpha=glow_alpha, edgecolor="none")
 
-            # Two triangles form the sector between axes i and j
-            ax.fill(
-                [theta_i, theta_j, theta_i],
-                [0, 0, r_i],
-                color=rgb,
-                alpha=glow_alpha,
-                edgecolor="none",
-            )
-            ax.fill(
-                [theta_j, theta_j, theta_i],
-                [0, r_j, r_i],
-                color=rgb,
-                alpha=glow_alpha,
-                edgecolor="none",
-            )
-
-        # ---- fixed-shape polygon outline & subtle interior glow ----
         ax.plot(angles_loop, base_scores_loop, color="#FFFFFF", linewidth=1.8)
         ax.fill(angles_loop, base_scores_loop, color="#888888", alpha=poly_alpha)
 
-        # ---- outer labels, safely outside the circle ----
         label_radius = 110
         for angle, section in zip(angles, SECTIONS):
             text = "\n".join(textwrap.wrap(section, 12))
+            ha = "center" if angle == 0 else ("left" if 0 < angle < math.pi else "right")
+            ax.text(angle, label_radius, text,
+                    ha=ha, va="center", color="white", fontsize=6)
 
-            if 0 < angle < math.pi:
-                ha = "left"
-            elif angle > math.pi:
-                ha = "right"
-            else:
-                ha = "center"
-
-            ax.text(
-                angle,
-                label_radius,
-                text,
-                ha=ha,
-                va="center",
-                color="white",
-                fontsize=6,
-                fontweight="medium",
-            )
-
-        ax.set_title(
-            "Cyber Team Spectrum",
-            pad=18,
-            color="white",
-            fontsize=11,
-            fontweight="bold",
-        )
+        ax.set_title("Cyber Team Spectrum",
+                     pad=18, color="white", fontsize=11, fontweight="bold")
 
         for label in ax.get_yticklabels():
             label.set_color("gray")
@@ -361,294 +313,11 @@ def make_radar(scores):
         plt.tight_layout()
 
         buf = io.BytesIO()
-        fig.savefig(
-            buf,
-            format="png",
-            dpi=120,
-            bbox_inches="tight",
-            transparent=True,
-        )
+        fig.savefig(buf, format="png", dpi=120, bbox_inches="tight", transparent=True)
         buf.seek(0)
-        img = imageio.imread(buf)
-        frames.append(img)
-
+        frames.append(imageio.imread(buf))
         plt.close(fig)
 
-    # Animated GIF, loop forever
-    imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
-    """
-    Build an animated radar GIF where:
-    - Each axis is normalized (0–100%) from the cert counts.
-    - The SHAPE is fixed (no growing/shrinking).
-    - Colors pulse by alpha (brightness) only.
-    - Gradient sectors are only drawn between axes that both have >0%.
-    """
-    OUTPUT_DIR.mkdir(exist_ok=True)
-
-    num_vars = len(SECTIONS)
-    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
-
-    # Clamp scores to [0, 100] and keep them fixed across frames
-    base_scores = [max(0.0, min(100.0, s)) for s in scores]
-    base_scores_loop = base_scores + base_scores[:1]
-    angles_loop = angles + angles[:1]
-
-    frames = []
-    n_frames = 24  # frames per pulse cycle
-
-    for frame in range(n_frames):
-        phase = 2 * math.pi * frame / n_frames
-
-        # Pulse by brightness only (alpha), NOT by changing radius
-        glow_alpha = 0.18 + 0.22 * (0.5 * (1 + math.sin(phase)))  # 0.18–0.40
-        poly_alpha = 0.04 + 0.06 * (0.5 * (1 + math.sin(phase)))  # subtle interior glow
-
-        fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-        fig.set_size_inches(4.5, 4.5)
-
-        ax.set_theta_offset(math.pi / 2)
-        ax.set_theta_direction(-1)
-        ax.set_xticks(angles)
-        ax.set_xticklabels([])
-
-        ax.set_ylim(0, 100)
-        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
-
-        fig.patch.set_facecolor("#111111")
-        ax.set_facecolor("#111111")
-
-        # Dim the grid lines so the colors pop
-        for gridline in ax.yaxis.get_gridlines():
-            gridline.set_color("#555555")
-        for gridline in ax.xaxis.get_gridlines():
-            gridline.set_color("#555555")
-
-        # ---- colored gradient sectors BETWEEN axes ----
-        # Only draw if both adjacent axes have some progress (> 0).
-        for i in range(num_vars):
-            j = (i + 1) % num_vars
-
-            r_i = base_scores[i]
-            r_j = base_scores[j]
-
-            if r_i <= 0.0 and r_j <= 0.0:
-                # nothing done in either track => no glowing wedge here
-                continue
-
-            theta_i = angles[i]
-            theta_j = angles[j]
-
-            c_i = section_rgbs[i]
-            c_j = section_rgbs[j]
-            rgb = blend_rgb(c_i, c_j, 0.5)
-
-            # Two triangles forming the sector between axes i and j.
-            # Note: we use *fixed* radii r_i / r_j, only alpha changes.
-            ax.fill(
-                [theta_i, theta_j, theta_i],
-                [0, 0, r_i],
-                color=rgb,
-                alpha=glow_alpha,
-                edgecolor="none",
-            )
-            ax.fill(
-                [theta_j, theta_j, theta_i],
-                [0, r_j, r_i],
-                color=rgb,
-                alpha=glow_alpha,
-                edgecolor="none",
-            )
-
-        # ---- radar polygon outline & subtle interior fill (fixed shape) ----
-        ax.plot(angles_loop, base_scores_loop, color="#FFFFFF", linewidth=1.8)
-        ax.fill(angles_loop, base_scores_loop, color="#888888", alpha=poly_alpha)
-
-        # ---- outer labels, safely outside the circle ----
-        label_radius = 110
-        for angle, section in zip(angles, SECTIONS):
-            text = "\n".join(textwrap.wrap(section, 12))
-
-            if 0 < angle < math.pi:
-                ha = "left"
-            elif angle > math.pi:
-                ha = "right"
-            else:
-                ha = "center"
-
-            ax.text(
-                angle,
-                label_radius,
-                text,
-                ha=ha,
-                va="center",
-                color="white",
-                fontsize=6,
-                fontweight="medium",
-            )
-
-        ax.set_title(
-            "Cyber Team Spectrum",
-            pad=18,
-            color="white",
-            fontsize=11,
-            fontweight="bold",
-        )
-
-        for label in ax.get_yticklabels():
-            label.set_color("gray")
-            label.set_fontsize(6)
-
-        plt.tight_layout()
-
-        # Save this frame to an in-memory PNG and read as an array
-        buf = io.BytesIO()
-        fig.savefig(
-            buf,
-            format="png",
-            dpi=120,
-            bbox_inches="tight",
-            transparent=True,
-        )
-        buf.seek(0)
-        img = imageio.imread(buf)
-        frames.append(img)
-
-        plt.close(fig)
-
-    # Save all frames as an animated GIF, loop forever
-    imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
-
-    """
-    Build an animated, pulsing radar GIF with gradient sectors
-    between adjacent axes.
-    """
-    OUTPUT_DIR.mkdir(exist_ok=True)
-
-    num_vars = len(SECTIONS)
-    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
-
-    frames = []
-    n_frames = 24  # frames per pulse cycle
-
-    for frame in range(n_frames):
-        # smooth breathing scale (0.9–1.1 of real value)
-        phase = 2 * math.pi * frame / n_frames
-        scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))  # 0.9–1.1
-        scaled_scores = [min(s * scale, 100.0) for s in scores]
-
-        scores_loop = scaled_scores + scaled_scores[:1]
-        angles_loop = angles + angles[:1]
-
-        fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-        fig.set_size_inches(4.5, 4.5)
-
-        ax.set_theta_offset(math.pi / 2)
-        ax.set_theta_direction(-1)
-        ax.set_xticks(angles)
-        ax.set_xticklabels([])
-
-        ax.set_ylim(0, 100)
-        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
-
-        fig.patch.set_facecolor("#111111")
-        ax.set_facecolor("#111111")
-
-        # make grid lines slightly dimmer so colors pop
-        for gridline in ax.yaxis.get_gridlines():
-            gridline.set_color("#555555")
-        for gridline in ax.xaxis.get_gridlines():
-            gridline.set_color("#555555")
-
-        # ---- colored triangular sectors between axes ----
-        glow_alpha = 0.28 + 0.18 * (0.5 * (1 + math.sin(phase)))  # a bit stronger
-
-        for i in range(num_vars):
-            j = (i + 1) % num_vars
-            r_i = scaled_scores[i]
-            r_j = scaled_scores[j]
-            theta_i = angles[i]
-            theta_j = angles[j]
-
-            c_i = section_rgbs[i]
-            c_j = section_rgbs[j]
-            rgb = blend_rgb(c_i, c_j, 0.5)
-
-            # two triangles forming the sector between axes i and j
-            ax.fill(
-                [theta_i, theta_j, theta_i],
-                [0, 0, r_i],
-                color=rgb,
-                alpha=glow_alpha,
-                edgecolor="none",
-            )
-            ax.fill(
-                [theta_j, theta_j, theta_i],
-                [0, r_j, r_i],
-                color=rgb,
-                alpha=glow_alpha,
-                edgecolor="none",
-            )
-
-        # radar polygon outline
-        ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.8)
-        # subtle interior fill, so colors still dominate
-        ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.06)
-
-        # ---- outer labels, safely outside circle ----
-        label_radius = 110
-        for angle, section in zip(angles, SECTIONS):
-            text = "\n".join(textwrap.wrap(section, 12))
-
-            if 0 < angle < math.pi:
-                ha = "left"
-            elif angle > math.pi:
-                ha = "right"
-            else:
-                ha = "center"
-
-            ax.text(
-                angle,
-                label_radius,
-                text,
-                ha=ha,
-                va="center",
-                color="white",
-                fontsize=6,
-                fontweight="medium",
-            )
-
-        ax.set_title(
-            "Cyber Team Spectrum",
-            pad=18,
-            color="white",
-            fontsize=11,
-            fontweight="bold",
-        )
-
-        for label in ax.get_yticklabels():
-            label.set_color("gray")
-            label.set_fontsize(6)
-
-        plt.tight_layout()
-
-        # Save this frame to an in-memory PNG and read as an array
-        buf = io.BytesIO()
-        fig.savefig(
-            buf,
-            format="png",
-            dpi=120,
-            bbox_inches="tight",
-            transparent=True,
-        )
-        buf.seek(0)
-        img = imageio.imread(buf)
-        frames.append(img)
-
-        plt.close(fig)
-
-    # Save all frames as an animated GIF, loop forever
     imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
 
 
