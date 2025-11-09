@@ -47,9 +47,9 @@
   <img src="generated/cyber_radar.gif" width="550" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 1.6% of the cert list (2/122).
-> Strongest region: Orange Team (Network Security, 11.1% of that track complete).
-> “Has installed Kali... and that's about it.” – Robot
+> Overall progress: 4.1% of the cert list (5/122).
+> Strongest region: Green Team (Architecture and Engineering, 12.5% of that track complete).
+> “Fresh out the tutorial zone.” – Robot
 <!-- radar-end -->
 
 
