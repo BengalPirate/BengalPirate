@@ -271,7 +271,7 @@ def make_radar(scores):
         ax.set_xticklabels([])
 
         ax.set_ylim(0, 100)
-        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
+        ax.set_rgrids(["20%", "40%", "60%", "80%", "100%"], angle=0, fontsize=6)
 
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
