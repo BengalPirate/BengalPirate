@@ -315,13 +315,16 @@ def update_readme(quote):
 
     replacement = (
         "<!-- radar-start -->\n"
-        "![Cyber Skill Radar](generated/cyber_radar.png)\n\n"
+        '<p align="center">\n'
+        '  <img src="generated/cyber_radar.gif" width="250" alt="Cyber Skill Radar">\n'
+        "</p>\n\n"
         f"{block}\n"
         "<!-- radar-end -->"
     )
 
     new_readme = re.sub(pattern, replacement, readme)
     README_FILE.write_text(new_readme, encoding="utf-8")
+
 
 
 
