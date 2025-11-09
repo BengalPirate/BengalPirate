@@ -4,38 +4,38 @@ Network Security
 
 - [x] CompTIA Network+
 
-- [ ] Cisco Certified Network Associate (CCNA)
-- [ ] Cisco Certified Network Professional - Enterprise (CCNP - E)
-- [ ] Cisco Certified Network Professional - Security (CCNP - S)
+- [x] Cisco Certified Network Associate (CCNA)
+- [x] Cisco Certified Network Professional - Enterprise (CCNP - E)
+- [x] Cisco Certified Network Professional - Security (CCNP - S)
       
-- [ ] Cisco Certified Design Expert (CCDE)
-- [ ] Cisco Certified Internetwork Expert (CCIE)
-- [ ] Microsoft Certified Azure Network Engineer
-- [ ] Google Professional Cloud Network Engineer
-- [ ] Amazon Web Services Certified Advanced Networking Specialty
+- [x] Cisco Certified Design Expert (CCDE)
+- [x] Cisco Certified Internetwork Expert (CCIE)
+- [x] Microsoft Certified Azure Network Engineer
+- [x] Google Professional Cloud Network Engineer
+- [x] Amazon Web Services Certified Advanced Networking Specialty
 
 Architecture and Engineering
 
-- [ ] CompTIA A+
-- [ ] Amazon Web Services Certified Cloud Practitoner
-- [ ] Microsoft Certified Azure Fundamentals
-- [ ] CompTIA Cloud+
-- [ ] Google Associate Cloud Engineer
-- [ ] CompTIA Server+
-- [ ] CompTIA Linux+
+- [x] CompTIA A+
+- [x] Amazon Web Services Certified Cloud Practitoner
+- [x] Microsoft Certified Azure Fundamentals
+- [x] CompTIA Cloud+
+- [x] Google Associate Cloud Engineer
+- [x] CompTIA Server+
+- [x] CompTIA Linux+
       
-- [ ] Google Professional Cloud Security Engineer
-- [ ] Microsoft Certified Azure Administrator Associate
-- [ ] CompTIA SecAI+
-- [ ] Amazon Web Services Certified Solutions Architect - Associate
-- [ ] Microsoft Certified Azure Security Engineer Associate
-- [ ] Amazon Web Services Certified Security - Specialty
-- [ ] ISC2 Certified Cloud Security Professional (CCSP)
-- [ ] Red Hat Certified System Administrator (RHCSA)
-- [ ] GIAC Certified Windows System Administrator (GCWN)
-- [ ] GIAC Response and Industrial Defense (GRID)
+- [x] Google Professional Cloud Security Engineer
+- [x] Microsoft Certified Azure Administrator Associate
+- [x] CompTIA SecAI+
+- [x] Amazon Web Services Certified Solutions Architect - Associate
+- [x] Microsoft Certified Azure Security Engineer Associate
+- [x] Amazon Web Services Certified Security - Specialty
+- [x] ISC2 Certified Cloud Security Professional (CCSP)
+- [x] Red Hat Certified System Administrator (RHCSA)
+- [x] GIAC Certified Windows System Administrator (GCWN)
+- [x] GIAC Response and Industrial Defense (GRID)
       
-- [ ] GIAC Cloud Threat Detection (GCTD)
+- [x] GIAC Cloud Threat Detection (GCTD)
 - [ ] Google Professional Cloud Architect
 - [ ] Microsoft Certified Azure Solutions Architect Expert
 - [ ] Amazon Web Services Certified Solutions Architect Professional
