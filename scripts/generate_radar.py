@@ -209,13 +209,18 @@ def make_radar(scores):
     colors = [TEAM_COLORS[s] for s in SECTIONS]
 
     fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-    fig.set_size_inches(5, 5)
+    # slightly smaller figure; GitHub will still render it nicely
+    fig.set_size_inches(4, 4)
 
     ax.set_theta_offset(math.pi / 2)
     ax.set_theta_direction(-1)
-    ax.set_thetagrids(np.degrees(angles), labels)
+
+    # smaller theta labels
+    ax.set_thetagrids(np.degrees(angles), labels, fontsize=7)
+
     ax.set_ylim(0, 100)
-    ax.set_rgrids([20, 40, 60, 80, 100], angle=0)
+    # smaller radial labels
+    ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
     # background
     fig.patch.set_facecolor("#111111")
@@ -224,7 +229,6 @@ def make_radar(scores):
     # colored wedges per axis
     for i, score in enumerate(scores):
         color = colors[i]
-        # draw a narrow wedge from center to score
         ax.fill(
             [angles[i], angles[i]],
             [0, score],
@@ -234,19 +238,23 @@ def make_radar(scores):
         )
 
     # polygon outline
-    ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=2)
+    ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
     ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
 
-    ax.set_title("Cyber Team Spectrum", pad=20, color="white")
+    ax.set_title("Cyber Team Spectrum", pad=15, color="white", fontsize=10)
 
+    # fine-tune tick label sizes/colors
     for label in ax.get_xticklabels():
         label.set_color("white")
+        label.set_fontsize(7)
     for label in ax.get_yticklabels():
         label.set_color("gray")
+        label.set_fontsize(6)
 
     plt.tight_layout()
     fig.savefig(OUTPUT_IMG, dpi=150, bbox_inches="tight", transparent=True)
     plt.close(fig)
+
 
 
 def update_readme(quote):
