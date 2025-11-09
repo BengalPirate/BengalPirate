@@ -47,8 +47,8 @@
   <img src="generated/cyber_radar.gif" width="550" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 22.1% of the cert list (27/122).
-> Build is well-balanced across White Team, Yellow Team, and Blue Team.
+> Overall progress: 21.3% of the cert list (26/122).
+> Strongest region: Purple Team (Assessment and Testing, 71.4% of that track complete).
 > “Up-and-coming cyber warrior.” – Robot
 <!-- radar-end -->
 
