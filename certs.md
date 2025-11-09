@@ -75,12 +75,12 @@ Assessment and Testing
 
 Software Security
 
-- [ ] SECO Secure Programming Foundation (S - SPF)
-- [ ] Mosse Institute Certified Application Security Engineer (MASE)
-- [ ] SecOps Group Certified AppSec Practitoner (CAP)
-- [ ] Offensive Security SJD -100 Secure Java Development Essentials (OSCC-SJD)
+- [x] SECO Secure Programming Foundation (S - SPF)
+- [x] Mosse Institute Certified Application Security Engineer (MASE)
+- [x] SecOps Group Certified AppSec Practitoner (CAP)
+- [x] Offensive Security SJD -100 Secure Java Development Essentials (OSCC-SJD)
       
-- [ ] GIAC Machine Learning Engineer (GMLE)
+- [x] GIAC Machine Learning Engineer (GMLE)
 - [ ] EC Council Certified Application Security Engineer (CASE)
 - [ ] ISC2 Certified Secure Software Lifecycle Professional (CSSLP)
 - [ ] GIAC Certified Web Application Defender (GWEB)
