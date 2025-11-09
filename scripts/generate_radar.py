@@ -237,9 +237,13 @@ def blend_rgb(c1, c2, t=0.5):
 def make_radar(scores):
     """
     Animated radar:
-    - Shape is fixed (no radius scaling, no alpha-based "thickness" illusion).
-    - Angular gradient between adjacent axes (e.g., orange -> green).
-    - Subtle color pulsing via brightness only.
+
+    - Each axis is 0–100% of that track.
+    - If an axis is 0%, it contributes *no color at all*.
+    - Color only appears in triangular patches between two adjacent
+      axes that BOTH have > 0% (center + point_i + point_j).
+    - The triangle shape never changes size; only its brightness
+      (alpha) pulses.
     """
     OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -247,109 +251,105 @@ def make_radar(scores):
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
     section_rgbs = [hex_to_rgb(TEAM_COLORS[s]) for s in SECTIONS]
 
-    # Fixed radii for the whole animation
+    # Clamp scores to [0, 100] and keep them fixed across frames
     base_scores = [max(0.0, min(100.0, s)) for s in scores]
     base_scores_loop = base_scores + base_scores[:1]
     angles_loop = angles + angles[:1]
 
     frames = []
-    n_frames = 24          # frames per pulse cycle
-    n_grad_steps = 32      # more steps = smoother gradient
+    n_frames = 24  # frames per pulse cycle
 
     for frame in range(n_frames):
         phase = 2 * math.pi * frame / n_frames
 
-        # brightness pulse (not radius, not alpha)
-        brightness = 0.85 + 0.15 * (0.5 * (1 + math.sin(phase)))  # 0.85–1.0
+        # Pulse only by alpha (brightness), NOT by changing radius
+        tri_alpha = 0.20 + 0.20 * (0.5 * (1 + math.sin(phase)))   # 0.20–0.40
+        poly_alpha = 0.04 + 0.06 * (0.5 * (1 + math.sin(phase)))  # 0.04–0.10
 
         fig, ax = plt.subplots(subplot_kw=dict(polar=True))
         fig.set_size_inches(4.5, 4.5)
 
-        # polar setup
+        # Polar orientation
         ax.set_theta_offset(math.pi / 2)
         ax.set_theta_direction(-1)
+
         ax.set_xticks(angles)
         ax.set_xticklabels([])
 
         ax.set_ylim(0, 100)
         ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
-        # dark background
+        # Dark background
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
-        # dim grid
+        # Slightly dim grid so colors pop
         for gridline in ax.yaxis.get_gridlines():
             gridline.set_color("#555555")
         for gridline in ax.xaxis.get_gridlines():
             gridline.set_color("#555555")
 
-        # -------- gradient wedges between axes (fixed shape) --------
+        # ---------------------------------------------------------
+        #  Triangles ONLY between adjacent axes that both have > 0
+        #  Triangle = center + point on axis i + point on axis j
+        #  => no shading on any track that is at 0%.
+        # ---------------------------------------------------------
         for i in range(num_vars):
             j = (i + 1) % num_vars
 
             r_i = base_scores[i]
             r_j = base_scores[j]
 
-            # if neither track has any progress, don't paint this wedge
-            if r_i <= 0.0 and r_j <= 0.0:
+            # If either side is zero, skip – no color in that sector
+            if r_i <= 0.0 or r_j <= 0.0:
                 continue
 
             theta_i = angles[i]
             theta_j = angles[j]
 
-            # slice wedge into thin angular strips
-            for k in range(n_grad_steps):
-                t0 = k / n_grad_steps
-                t1 = (k + 1) / n_grad_steps
+            # Blend the two team colors for the shared triangle
+            rgb = blend_rgb(section_rgbs[i], section_rgbs[j], 0.5)
 
-                theta0 = theta_i + (theta_j - theta_i) * t0
-                theta1 = theta_i + (theta_j - theta_i) * t1
+            # Single triangle: center → axis i point → axis j point
+            ax.fill(
+                [theta_i, theta_j, theta_i],
+                [r_i,     r_j,     0],
+                color=rgb,
+                alpha=tri_alpha,
+                edgecolor="none",
+            )
 
-                # radius along the polygon edge between the two axes
-                r0 = r_i + (r_j - r_i) * t0
-                r1 = r_i + (r_j - r_i) * t1
-
-                # color for this strip: interpolate axis colors, then brighten
-                base_rgb = blend_rgb(section_rgbs[i], section_rgbs[j], t0)
-                rgb = tuple(min(1.0, c * brightness) for c in base_rgb)
-
-                # two small triangles to fill this strip
-                ax.fill(
-                    [theta0, theta1, theta0],
-                    [0, 0, r0],
-                    color=rgb,
-                    alpha=0.9,          # constant alpha
-                    edgecolor="none",
-                )
-                ax.fill(
-                    [theta1, theta1, theta0],
-                    [0, r1, r0],
-                    color=rgb,
-                    alpha=0.9,
-                    edgecolor="none",
-                )
-
-        # -------- static polygon outline & very faint interior --------
-        ax.plot(angles_loop, base_scores_loop, color="#FFFFFF", linewidth=1.8)
-        ax.fill(
+        # ---------------------------------------------------------
+        #  Polygon outline showing your normalized shape
+        #  (shape is fixed; only alpha pulses very subtly)
+        # ---------------------------------------------------------
+        ax.plot(
             angles_loop,
             base_scores_loop,
             color="#FFFFFF",
-            alpha=0.02,  # so faint it won't look like it's "breathing"
+            linewidth=1.8,
+            alpha=0.7,
+        )
+        ax.fill(
+            angles_loop,
+            base_scores_loop,
+            color="#888888",
+            alpha=poly_alpha,
         )
 
-        # -------- labels outside the circle --------
+        # ---------------------------------------------------------
+        #  Labels – outside the circle, no overlap
+        # ---------------------------------------------------------
         label_radius = 110
         for angle, section in zip(angles, SECTIONS):
             text = "\n".join(textwrap.wrap(section, 12))
 
-            if 0 < angle < math.pi:
-                ha = "left"
-            elif angle > math.pi:
-                ha = "right"
-            else:
+            if angle == 0:
                 ha = "center"
+            elif 0 < angle < math.pi:
+                ha = "left"
+            else:
+                ha = "right"
 
             ax.text(
                 angle,
@@ -359,7 +359,6 @@ def make_radar(scores):
                 va="center",
                 color="white",
                 fontsize=6,
-                fontweight="medium",
             )
 
         ax.set_title(
@@ -376,6 +375,7 @@ def make_radar(scores):
 
         plt.tight_layout()
 
+        # Render this frame to an in-memory PNG and store as array
         buf = io.BytesIO()
         fig.savefig(
             buf,
@@ -386,9 +386,10 @@ def make_radar(scores):
         )
         buf.seek(0)
         frames.append(imageio.imread(buf))
+
         plt.close(fig)
 
-    # Loop forever
+    # GIF that loops forever
     imageio.mimsave(OUTPUT_IMG, frames, duration=0.09, loop=0)
 
 
