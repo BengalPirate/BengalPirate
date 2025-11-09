@@ -22,7 +22,7 @@ jobs:
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install matplotlib numpy
+          pip install matplotlib numpy imageio
 
       - name: Generate radar chart
         run: |
