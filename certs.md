@@ -45,13 +45,13 @@ Architecture and Engineering
 
 Security and Risk Management
 
-- [x] CompTIA Security+
-- [x] Mile2 Certified Healthcare Information Systems Security Practitoner
+- [ ] CompTIA Security+
+- [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
       
-- [x] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
-- [x] ISACA Certified Data Privacy Solutions Engineer (CDPSE)
-- [x] ISACA Certified in Risk and Information Systems Control (CRISC)
-- [x] CompTIA SecOT+
+- [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
+- [ ] ISACA Certified Data Privacy Solutions Engineer (CDPSE)
+- [ ] ISACA Certified in Risk and Information Systems Control (CRISC)
+- [ ] CompTIA SecOT+
       
 - [ ] CompTIA SecurityX
 - [ ] GIAC Security Professsional (GSP)
@@ -63,13 +63,13 @@ Security and Risk Management
 
 Assessment and Testing
 
-- [ ] OCEG Governance Risk and Compliance Professional (GRCP)
-- [ ] OCEG Governance Risk and Compliance Auditor (GRCA)
+- [x] OCEG Governance Risk and Compliance Professional (GRCP)
+- [x] OCEG Governance Risk and Compliance Auditor (GRCA)
       
-- [ ] GIAC Certified Intrusion Analyst Certification (GCIA)
-- [ ] GIAC Mobile Device Security Analyst (GMOB)
+- [x] GIAC Certified Intrusion Analyst Certification (GCIA)
+- [x] GIAC Mobile Device Security Analyst (GMOB)
       
-- [ ] ISACA Certified Information Systems Auditor (CISA)
+- [x] ISACA Certified Information Systems Auditor (CISA)
 - [ ] PCI Qualified Security Assessor (PCI DSS QSA)
 - [ ] GIAC Systems and Network Auditor Certification (GSNA)
 
