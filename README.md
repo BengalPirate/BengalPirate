@@ -47,9 +47,9 @@
   <img src="generated/cyber_radar.gif" width="250" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 23.0% of the cert list (28/122).
-> Strongest region: Orange Team (Network Security, 100.0% of that track complete).
-> “Up-and-coming cyber warrior.” – Robot
+> Overall progress: 13.9% of the cert list (17/122).
+> Build is well-balanced across Blue Team, Red Team, and White Team.
+> “Finally figured out what nmap does.” – Robot
 <!-- radar-end -->
 
 
