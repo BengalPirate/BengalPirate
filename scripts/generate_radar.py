@@ -1,6 +1,7 @@
 import re
 import math
 import textwrap
+import imageio.v2 as imageio
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -10,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CERTS_FILE = ROOT / "certs.md"
 README_FILE = ROOT / "README.md"
 OUTPUT_DIR = ROOT / "generated"
-OUTPUT_IMG = OUTPUT_DIR / "cyber_radar.png"
+OUTPUT_IMG = OUTPUT_DIR / "cyber_radar.gif"
 
 # Headings MUST match your certs.md exactly
 SECTIONS = [
@@ -196,6 +197,108 @@ def pick_quote(overall_pct, total_done=0, total_all=0, section_scores=None):
     return "\n".join(lines)
 
 def make_radar(scores):
+    OUTPUT_DIR.mkdir(exist_ok=True)
+
+    labels = SECTIONS
+    num_vars = len(labels)
+
+    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
+
+    colors = [TEAM_COLORS[s] for s in SECTIONS]
+
+    frames = []
+    n_frames = 24  # one cycle of the “glow”
+
+    for frame in range(n_frames):
+        # scale scores with a smooth breathing effect (0.9x ↔ 1.1x)
+        phase = 2 * math.pi * frame / n_frames
+        scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))  # 0.9–1.1
+        scaled_scores = [min(s * scale, 100.0) for s in scores]
+
+        scores_loop = scaled_scores + scaled_scores[:1]
+        angles_loop = angles + angles[:1]
+
+        fig, ax = plt.subplots(subplot_kw=dict(polar=True))
+        fig.set_size_inches(4.8, 4.8)
+
+        ax.set_theta_offset(math.pi / 2)
+        ax.set_theta_direction(-1)
+
+        # we already draw our own labels outside, so only ticks:
+        ax.set_xticks(angles)
+        ax.set_xticklabels([])
+        ax.set_ylim(0, 100)
+        ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
+
+        # background
+        fig.patch.set_facecolor("#111111")
+        ax.set_facecolor("#111111")
+
+        # colored wedges per axis (alpha also “breathes” a bit)
+        base_alpha = 0.25 + 0.15 * (0.5 * (1 + math.sin(phase)))
+        for i, score in enumerate(scaled_scores):
+            color = colors[i]
+            ax.fill(
+                [angles[i], angles[i]],
+                [0, score],
+                color=color,
+                alpha=base_alpha,
+                edgecolor="none",
+            )
+
+        # radar polygon
+        ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
+        ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
+
+        # custom outer labels (same trick as before)
+        label_radius = 110
+        for angle, section in zip(angles, SECTIONS):
+            # manual wrapping
+            text = "\n".join(textwrap.wrap(section, 12))
+            if 0 < angle < math.pi:
+                ha = "left"
+            elif angle > math.pi:
+                ha = "right"
+            else:
+                ha = "center"
+
+            ax.text(
+                angle,
+                label_radius,
+                text,
+                ha=ha,
+                va="center",
+                color="white",
+                fontsize=6,
+                fontweight="medium",
+            )
+
+        ax.set_title(
+            "Cyber Team Spectrum",
+            pad=18,
+            color="white",
+            fontsize=11,
+            fontweight="bold",
+        )
+
+        for label in ax.get_yticklabels():
+            label.set_color("gray")
+            label.set_fontsize(6)
+
+        plt.tight_layout()
+
+        # render fig to an array for GIF
+        fig.canvas.draw()
+        w, h = fig.canvas.get_width_height()
+        img = np.frombuffer(fig.canvas.tostring_rgb(), dtype=np.uint8)
+        img = img.reshape((h, w, 3))
+        frames.append(img)
+
+        plt.close(fig)
+
+    # save animated GIF
+    imageio.mimsave(OUTPUT_IMG, frames, duration=0.08)  # ~12.5 fps
+
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     # Wrap long labels into multiple lines for readability
