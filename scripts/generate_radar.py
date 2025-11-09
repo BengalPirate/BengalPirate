@@ -212,6 +212,88 @@ def make_radar(scores):
     colors = [TEAM_COLORS[s] for s in SECTIONS]
 
     fig, ax = plt.subplots(subplot_kw=dict(polar=True))
+    fig.set_size_inches(4.8, 4.8)
+
+    # Polar orientation: 0 at top, clockwise
+    ax.set_theta_offset(math.pi / 2)
+    ax.set_theta_direction(-1)
+
+    # Use explicit xticks but no labels (we'll draw our own)
+    ax.set_xticks(angles)
+    ax.set_xticklabels([])
+
+    ax.set_ylim(0, 100)
+    ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
+
+    # background
+    fig.patch.set_facecolor("#111111")
+    ax.set_facecolor("#111111")
+
+    # colored wedges per axis
+    for i, score in enumerate(scores):
+        color = colors[i]
+        ax.fill(
+            [angles[i], angles[i]],
+            [0, score],
+            color=color,
+            alpha=0.35,
+            edgecolor="none",
+        )
+
+    # radar polygon
+    ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
+    ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
+
+    # ---- custom outer labels (no overlap with circle) ----
+    label_radius = 110  # outside max radius (100)
+    for angle, text in zip(angles, wrapped_labels):
+        # choose horizontal alignment based on side
+        # 0 rad is top; pi/2 right; pi bottom; 3pi/2 left (after offset)
+        if 0 < angle < math.pi:          # right half
+            ha = "left"
+        elif angle > math.pi:            # left half
+            ha = "right"
+        else:                            # exactly top or bottom
+            ha = "center"
+
+        ax.text(
+            angle,
+            label_radius,
+            text,
+            ha=ha,
+            va="center",
+            color="white",
+            fontsize=6,
+            fontweight="medium",
+        )
+
+    ax.set_title("Cyber Team Spectrum", pad=18, color="white", fontsize=11, fontweight="bold")
+
+    # radial tick labels styling
+    for label in ax.get_yticklabels():
+        label.set_color("gray")
+        label.set_fontsize(6)
+
+    plt.tight_layout()
+    fig.savefig(OUTPUT_IMG, dpi=150, bbox_inches="tight", transparent=True)
+    plt.close(fig)
+
+    OUTPUT_DIR.mkdir(exist_ok=True)
+
+    # Wrap long labels into multiple lines for readability
+    def wrap_label(label, width=12):
+        return "\n".join(textwrap.wrap(label, width))
+
+    wrapped_labels = [wrap_label(l) for l in SECTIONS]
+    num_vars = len(wrapped_labels)
+
+    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
+    scores_loop = scores + scores[:1]
+    angles_loop = angles + angles[:1]
+
+    colors = [TEAM_COLORS[s] for s in SECTIONS]
+
+    fig, ax = plt.subplots(subplot_kw=dict(polar=True))
     # Slightly bigger canvas so multi-line labels fit cleanly
     fig.set_size_inches(4.5, 4.5)
 
