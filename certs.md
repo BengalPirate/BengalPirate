@@ -69,7 +69,7 @@ Assessment and Testing
 - [x] GIAC Certified Intrusion Analyst Certification (GCIA)
 - [x] GIAC Mobile Device Security Analyst (GMOB)
       
-- [x] ISACA Certified Information Systems Auditor (CISA)
+- [ ] ISACA Certified Information Systems Auditor (CISA)
 - [ ] PCI Qualified Security Assessor (PCI DSS QSA)
 - [ ] GIAC Systems and Network Auditor Certification (GSNA)
 
