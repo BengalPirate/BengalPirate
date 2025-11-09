@@ -203,15 +203,15 @@ def make_radar(scores):
     labels = SECTIONS
     num_vars = len(labels)
 
+    # angles for each axis
     angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-
     colors = [TEAM_COLORS[s] for s in SECTIONS]
 
     frames = []
-    n_frames = 24  # one cycle of the “glow”
+    n_frames = 24  # number of frames in one glow cycle
 
     for frame in range(n_frames):
-        # scale scores with a smooth breathing effect (0.9x ↔ 1.1x)
+        # smooth breathing effect (0.9x ↔ 1.1x)
         phase = 2 * math.pi * frame / n_frames
         scale = 0.9 + 0.2 * (0.5 * (1 + math.sin(phase)))  # 0.9–1.1
         scaled_scores = [min(s * scale, 100.0) for s in scores]
@@ -220,14 +220,16 @@ def make_radar(scores):
         angles_loop = angles + angles[:1]
 
         fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-        fig.set_size_inches(4.8, 4.8)
+        fig.set_size_inches(4.5, 4.5)
 
+        # polar orientation: 0 at top, clockwise
         ax.set_theta_offset(math.pi / 2)
         ax.set_theta_direction(-1)
 
-        # we already draw our own labels outside, so only ticks:
+        # ticks but no default labels (we draw our own)
         ax.set_xticks(angles)
         ax.set_xticklabels([])
+
         ax.set_ylim(0, 100)
         ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
 
@@ -235,14 +237,13 @@ def make_radar(scores):
         fig.patch.set_facecolor("#111111")
         ax.set_facecolor("#111111")
 
-        # colored wedges per axis (alpha also “breathes” a bit)
+        # colored wedges per axis with glowing alpha
         base_alpha = 0.25 + 0.15 * (0.5 * (1 + math.sin(phase)))
         for i, score in enumerate(scaled_scores):
-            color = colors[i]
             ax.fill(
                 [angles[i], angles[i]],
                 [0, score],
-                color=color,
+                color=colors[i],
                 alpha=base_alpha,
                 edgecolor="none",
             )
@@ -251,11 +252,11 @@ def make_radar(scores):
         ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
         ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
 
-        # custom outer labels (same trick as before)
-        label_radius = 110
+        # custom outer labels outside the circle
+        label_radius = 110  # > max radius (100)
         for angle, section in zip(angles, SECTIONS):
-            # manual wrapping
             text = "\n".join(textwrap.wrap(section, 12))
+
             if 0 < angle < math.pi:
                 ha = "left"
             elif angle > math.pi:
@@ -288,166 +289,17 @@ def make_radar(scores):
 
         plt.tight_layout()
 
-        # Render figure to an in-memory PNG and read as an array
+        # Render this frame to an in-memory PNG and read as array
         buf = io.BytesIO()
-        fig.savefig(buf, format="png", dpi=140, bbox_inches="tight", transparent=True)
+        fig.savefig(buf, format="png", dpi=120, bbox_inches="tight", transparent=True)
         buf.seek(0)
         img = imageio.imread(buf)
         frames.append(img)
 
         plt.close(fig)
 
-
-    # save animated GIF
+    # Save all frames as an animated GIF
     imageio.mimsave(OUTPUT_IMG, frames, duration=0.08)  # ~12.5 fps
-
-    OUTPUT_DIR.mkdir(exist_ok=True)
-
-    # Wrap long labels into multiple lines for readability
-    def wrap_label(label, width=12):
-        return "\n".join(textwrap.wrap(label, width))
-
-    wrapped_labels = [wrap_label(l) for l in SECTIONS]
-    num_vars = len(wrapped_labels)
-
-    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    scores_loop = scores + scores[:1]
-    angles_loop = angles + angles[:1]
-
-    colors = [TEAM_COLORS[s] for s in SECTIONS]
-
-    fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-    fig.set_size_inches(4.8, 4.8)
-
-    # Polar orientation: 0 at top, clockwise
-    ax.set_theta_offset(math.pi / 2)
-    ax.set_theta_direction(-1)
-
-    # Use explicit xticks but no labels (we'll draw our own)
-    ax.set_xticks(angles)
-    ax.set_xticklabels([])
-
-    ax.set_ylim(0, 100)
-    ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
-
-    # background
-    fig.patch.set_facecolor("#111111")
-    ax.set_facecolor("#111111")
-
-    # colored wedges per axis
-    for i, score in enumerate(scores):
-        color = colors[i]
-        ax.fill(
-            [angles[i], angles[i]],
-            [0, score],
-            color=color,
-            alpha=0.35,
-            edgecolor="none",
-        )
-
-    # radar polygon
-    ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
-    ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
-
-    # ---- custom outer labels (no overlap with circle) ----
-    label_radius = 110  # outside max radius (100)
-    for angle, text in zip(angles, wrapped_labels):
-        # choose horizontal alignment based on side
-        # 0 rad is top; pi/2 right; pi bottom; 3pi/2 left (after offset)
-        if 0 < angle < math.pi:          # right half
-            ha = "left"
-        elif angle > math.pi:            # left half
-            ha = "right"
-        else:                            # exactly top or bottom
-            ha = "center"
-
-        ax.text(
-            angle,
-            label_radius,
-            text,
-            ha=ha,
-            va="center",
-            color="white",
-            fontsize=6,
-            fontweight="medium",
-        )
-
-    ax.set_title("Cyber Team Spectrum", pad=18, color="white", fontsize=11, fontweight="bold")
-
-    # radial tick labels styling
-    for label in ax.get_yticklabels():
-        label.set_color("gray")
-        label.set_fontsize(6)
-
-    plt.tight_layout()
-    fig.savefig(OUTPUT_IMG, dpi=150, bbox_inches="tight", transparent=True)
-    plt.close(fig)
-
-    OUTPUT_DIR.mkdir(exist_ok=True)
-
-    # Wrap long labels into multiple lines for readability
-    def wrap_label(label, width=12):
-        return "\n".join(textwrap.wrap(label, width))
-
-    wrapped_labels = [wrap_label(l) for l in SECTIONS]
-    num_vars = len(wrapped_labels)
-
-    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    scores_loop = scores + scores[:1]
-    angles_loop = angles + angles[:1]
-
-    colors = [TEAM_COLORS[s] for s in SECTIONS]
-
-    fig, ax = plt.subplots(subplot_kw=dict(polar=True))
-    # Slightly bigger canvas so multi-line labels fit cleanly
-    fig.set_size_inches(4.5, 4.5)
-
-    ax.set_theta_offset(math.pi / 2)
-    ax.set_theta_direction(-1)
-
-    # Use wrapped labels + smaller font
-    ax.set_thetagrids(np.degrees(angles), wrapped_labels, fontsize=7, fontweight="medium")
-
-    # Push labels a bit farther out from the center for extra breathing room
-    ax.tick_params(axis="x", pad=10)
-
-    ax.set_ylim(0, 100)
-    ax.set_rgrids([20, 40, 60, 80, 100], angle=0, fontsize=6)
-
-    # background
-    fig.patch.set_facecolor("#111111")
-    ax.set_facecolor("#111111")
-
-    # colored wedges
-    for i, score in enumerate(scores):
-        color = colors[i]
-        ax.fill(
-            [angles[i], angles[i]],
-            [0, score],
-            color=color,
-            alpha=0.35,
-            edgecolor="none",
-        )
-
-    # radar polygon
-    ax.plot(angles_loop, scores_loop, color="#FFFFFF", linewidth=1.5)
-    ax.fill(angles_loop, scores_loop, color="#888888", alpha=0.15)
-
-    ax.set_title("Cyber Team Spectrum", pad=18, color="white", fontsize=11, fontweight="bold")
-
-    # tick label styling
-    for label in ax.get_xticklabels():
-        label.set_color("white")
-        label.set_fontsize(7)
-        label.set_fontweight("medium")
-
-    for label in ax.get_yticklabels():
-        label.set_color("gray")
-        label.set_fontsize(6)
-
-    plt.tight_layout()
-    fig.savefig(OUTPUT_IMG, dpi=150, bbox_inches="tight", transparent=True)
-    plt.close(fig)
 
 
 def update_readme(quote):
