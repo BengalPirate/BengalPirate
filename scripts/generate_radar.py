@@ -1,11 +1,12 @@
 import re
 import math
-import textwrap
-import imageio.v2 as imageio
 from pathlib import Path
+import io
 
 import matplotlib.pyplot as plt
 import numpy as np
+import imageio.v2 as imageio
+import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
 CERTS_FILE = ROOT / "certs.md"
@@ -287,14 +288,15 @@ def make_radar(scores):
 
         plt.tight_layout()
 
-        # render fig to an array for GIF
-        fig.canvas.draw()
-        w, h = fig.canvas.get_width_height()
-        img = np.frombuffer(fig.canvas.tostring_rgb(), dtype=np.uint8)
-        img = img.reshape((h, w, 3))
+        # Render figure to an in-memory PNG and read as an array
+        buf = io.BytesIO()
+        fig.savefig(buf, format="png", dpi=140, bbox_inches="tight", transparent=True)
+        buf.seek(0)
+        img = imageio.imread(buf)
         frames.append(img)
 
         plt.close(fig)
+
 
     # save animated GIF
     imageio.mimsave(OUTPUT_IMG, frames, duration=0.08)  # ~12.5 fps
