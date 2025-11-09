@@ -45,7 +45,7 @@ Architecture and Engineering
 
 Security and Risk Management
 
-- [x] CompTIA Security+
+- [ ] CompTIA Security+
 - [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
       
 - [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
