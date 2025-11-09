@@ -40,6 +40,13 @@
   <div style="margin-left: 10px;">(click the GIFs for good music)</div>
 </div>
 
+## Cyber Skill Radar
+
+<!-- radar-start -->
+![Cyber Skill Radar](generated/cyber_radar.png)
+
+> "This guy is a noob" – Robot
+<!-- radar-end -->
 
 
 <h3 align="center">A passionate full stack software developer, computer engineer and cybersecurity enthusiast</h3>
