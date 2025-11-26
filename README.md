@@ -109,6 +109,11 @@
     <img src="https://img.shields.io/badge/HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white"/>
   </a>
 </div>
+<div align="center">
+  <a href="https://www.youtube.com/@BengalPirate">
+    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/>
+  </a>
+</div>
 
 <br/>
 
