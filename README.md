@@ -102,6 +102,9 @@
   <a href="https://www.codewars.com/users/BengalPirate">
     <img src="https://img.shields.io/badge/CodeWars-B1361E?style=for-the-badge&logo=codewars&logoColor=FFFFFF"/>
   </a>
+  <a href="https://codeforces.com/profile/BengalPirate">
+    <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white"/>
+  </a>
 </div>
 
 <br/>
