@@ -47,9 +47,9 @@
   <img src="generated/cyber_radar.gif" width="550" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 4.1% of the cert list (5/122).
-> Strongest region: Green Team (Architecture and Engineering, 12.5% of that track complete).
-> “Fresh out the tutorial zone.” – Robot
+> Overall progress: 0.0% of the cert list (0/122).
+> No dominant region yet – radar is empty.
+> “This guy is a noob.” – Robot
 <!-- radar-end -->
 
 
