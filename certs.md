@@ -2,7 +2,7 @@
 
 Network Security
 
-- [x] CompTIA Network+
+- [ ] CompTIA Network+
 
 - [ ] Cisco Certified Network Associate (CCNA)
 - [ ] Cisco Certified Network Professional - Enterprise (CCNP - E)
@@ -16,9 +16,9 @@ Network Security
 
 Architecture and Engineering
 
-- [x] CompTIA A+
-- [x] Amazon Web Services Certified Cloud Practitoner
-- [x] Microsoft Certified Azure Fundamentals
+- [ ] CompTIA A+
+- [ ] Amazon Web Services Certified Cloud Practitoner
+- [ ] Microsoft Certified Azure Fundamentals
 - [ ] CompTIA Cloud+
 - [ ] Google Associate Cloud Engineer
 - [ ] CompTIA Server+
@@ -45,7 +45,7 @@ Architecture and Engineering
 
 Security and Risk Management
 
-- [x] CompTIA Security+
+- [ ] CompTIA Security+
 - [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
       
 - [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
