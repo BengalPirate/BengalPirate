@@ -26,7 +26,8 @@
   </a>
 </h1>
 
-<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+<div align="center">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
 
   <!-- LEFT NEW GIF -->
   <a href="https://www.youtube.com/watch?v=CmwRQqJsegw" target="_blank">
@@ -64,6 +65,8 @@
       style="width: 70px; height: 70px;"
     >
   </a>
+
+</div>
 
 </div>
 
