@@ -26,19 +26,47 @@
   </a>
 </h1>
 
-<div align="center" style="display: flex; align-items: center; justify-content: center;">
-  <div style="margin-right: 30px;">About Me</div>
-    <a href="https://www.youtube.com/watch?v=CmwRQqJsegw&list=PLF42D0352FB78B009&index=5">
-      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 60px; height: 60px;">
-    </a>
-    <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
-      <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px" alt="About me">
-    </a>
-    <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs">
-      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" alt="GIF" style="width: 60px; height: 60px;">
-    </a>
-  <div style="margin-left: 10px;">(click the GIFs for good music)</div>
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+
+  <!-- LEFT NEW GIF -->
+  <a href="https://www.youtube.com/watch?v=CmwRQqJsegw" target="_blank">
+    <img 
+      src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNms3cXZjM296ajhlaWc2OGZveDg1emZpbjZ5ZjQ2djJycm1obGZubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/15Ni2ymjZlW447TuPP/giphy.gif" 
+      alt="Left GIF" 
+      style="width: 70px; height: 70px;"
+    >
+  </a>
+
+  <!-- ABOUT ME TEXT -->
+  <div style="font-weight: bold;">About Me</div>
+
+  <!-- ORIGINAL GIFS -->
+  <a href="https://www.youtube.com/watch?v=CmwRQqJsegw&list=PLF42D0352FB78B009&index=5">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" style="width: 60px; height: 60px;">
+  </a>
+
+  <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
+    <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50px">
+  </a>
+
+  <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" style="width: 60px; height: 60px;">
+  </a>
+
+  <!-- RIGHT TEXT -->
+  <div>(click the GIFs for good music)</div>
+
+  <!-- RIGHT NEW GIF -->
+  <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs" target="_blank">
+    <img 
+      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnpha3gxcHVpYTdwNzVvZmVkdmhtd3MzeHk0dDg2MHVyd3JydTE2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jtcTk8y8UCTBIkKhQ/giphy.gif" 
+      alt="Right GIF"
+      style="width: 70px; height: 70px;"
+    >
+  </a>
+
 </div>
+
 
 ## Cyber Skill Radar
 
