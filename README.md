@@ -26,30 +26,31 @@
   </a>
 </h1>
 
-<p align="center">
-
-  <!-- LEFT NEW GIF -->
+<!-- ABOUT ME TITLE ROW -->
+<h2 align="center">
   <a href="https://www.youtube.com/watch?v=CmwRQqJsegw" target="_blank">
     <img 
       src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNms3cXZjM296ajhlaWc2OGZveDg1emZpbjZ5ZjQ2djJycm1obGZubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/15Ni2ymjZlW447TuPP/giphy.gif" 
-      width="70" height="70"
-      style="vertical-align: middle;"
+      width="60" height="60"
     >
   </a>
 
-  &nbsp;&nbsp;
+  &nbsp;&nbsp;About Me&nbsp;&nbsp;
 
-  <!-- ABOUT ME TEXT -->
-  <strong>About Me</strong>
+  <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs" target="_blank">
+    <img 
+      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnpha3gxcHVpYTdwNzVvZmVkdmhtd3MzeHk0dDg2MHVyd3JydTE2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jtcTk8y8UCTBIkKhQ/giphy.gif" 
+      width="60" height="60"
+    >
+  </a>
+</h2>
 
-  &nbsp;
-
-  <!-- ORIGINAL GIFS -->
+<!-- ABOUT ME MUSIC GIF ROW -->
+<p align="center">
   <a href="https://www.youtube.com/watch?v=CmwRQqJsegw&list=PLF42D0352FB78B009&index=5">
     <img 
       src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" 
       width="60" height="60"
-      style="vertical-align: middle;"
     >
   </a>
 
@@ -57,7 +58,6 @@
     <img 
       src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" 
       width="50"
-      style="vertical-align: middle;"
     >
   </a>
 
@@ -65,27 +65,13 @@
     <img 
       src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" 
       width="60" height="60"
-      style="vertical-align: middle;"
     >
   </a>
-
-  &nbsp;
-
-  <!-- RIGHT TEXT -->
-  <span>(click the GIFs for good music)</span>
 
   &nbsp;&nbsp;
-
-  <!-- RIGHT NEW GIF -->
-  <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs" target="_blank">
-    <img 
-      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnpha3gxcHVpYTdwNzVvZmVkdmhtd3MzeHk0dDg2MHVyd3JydTE2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jtcTk8y8UCTBIkKhQ/giphy.gif" 
-      width="70" height="70"
-      style="vertical-align: middle;"
-    >
-  </a>
-
+  <span>(click the GIFs for good music)</span>
 </p>
+
 
 
 
