@@ -72,9 +72,6 @@
   <span>(click the GIFs for good music)</span>
 </p>
 
-
-
-
 ## Cyber Skill Radar
 
 <!-- radar-start -->
