@@ -26,23 +26,22 @@
   </a>
 </h1>
 
-<div align="center">
+<p align="center">
 
   <!-- LEFT NEW GIF -->
   <a href="https://www.youtube.com/watch?v=CmwRQqJsegw" target="_blank">
-    <img
-      src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNms3cXZjM296ajhlaWc2OGZveDg1emZpbjZ5ZjQ2djJycm1obGZubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/15Ni2ymjZlW447TuPP/giphy.gif"
+    <img 
+      src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNms3cXZjM296ajhlaWc2OGZveDg1emZpbjZ5ZjQ2djJycm1obGZubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/15Ni2ymjZlW447TuPP/giphy.gif" 
       width="70" height="70"
     >
   </a>
 
-  <!-- SPACING -->
   &nbsp;&nbsp;
 
   <!-- ABOUT ME TEXT -->
-  <span><b>About Me</b></span>
+  <strong>About Me</strong>
 
-  &nbsp;&nbsp;
+  &nbsp;
 
   <!-- ORIGINAL GIFS -->
   <a href="https://www.youtube.com/watch?v=CmwRQqJsegw&list=PLF42D0352FB78B009&index=5">
@@ -57,7 +56,7 @@
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" width="60" height="60">
   </a>
 
-  &nbsp;&nbsp;
+  &nbsp;
 
   <!-- RIGHT TEXT -->
   <span>(click the GIFs for good music)</span>
@@ -66,14 +65,13 @@
 
   <!-- RIGHT NEW GIF -->
   <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs" target="_blank">
-    <img
-      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnpha3gxcHVpYTdwNzVvZmVkdmhtd3MzeHk0dDg2MHVyd3JydTE2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jtcTk8y8UCTBIkKhQ/giphy.gif"
+    <img 
+      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnpha3gxcHVpYTdwNzVvZmVkdmhtd3MzeHk0dDg2MHVyd3JydTE2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jtcTk8y8UCTBIkKhQ/giphy.gif" 
       width="70" height="70"
     >
   </a>
 
-</div>
-
+</p>
 
 
 ## Cyber Skill Radar
