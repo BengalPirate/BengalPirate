@@ -33,6 +33,7 @@
     <img 
       src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNms3cXZjM296ajhlaWc2OGZveDg1emZpbjZ5ZjQ2djJycm1obGZubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/15Ni2ymjZlW447TuPP/giphy.gif" 
       width="70" height="70"
+      style="vertical-align: middle;"
     >
   </a>
 
@@ -45,15 +46,27 @@
 
   <!-- ORIGINAL GIFS -->
   <a href="https://www.youtube.com/watch?v=CmwRQqJsegw&list=PLF42D0352FB78B009&index=5">
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" width="60" height="60">
+    <img 
+      src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" 
+      width="60" height="60"
+      style="vertical-align: middle;"
+    >
   </a>
 
   <a href="https://www.youtube.com/watch?v=WeRQ_Essido">
-    <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" width="50">
+    <img 
+      src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/about_me.gif?raw=true" 
+      width="50"
+      style="vertical-align: middle;"
+    >
   </a>
 
   <a href="https://www.youtube.com/watch?v=hvzI_z65Xfs">
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" width="60" height="60">
+    <img 
+      src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxcHhrbjhhczQ2N21oMzVlNXlpZGY4bzZqOWgzbWticmQ4dmJsaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AOSwwqVjNZlDO/giphy.gif" 
+      width="60" height="60"
+      style="vertical-align: middle;"
+    >
   </a>
 
   &nbsp;
@@ -68,10 +81,12 @@
     <img 
       src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnpha3gxcHVpYTdwNzVvZmVkdmhtd3MzeHk0dDg2MHVyd3JydTE2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jtcTk8y8UCTBIkKhQ/giphy.gif" 
       width="70" height="70"
+      style="vertical-align: middle;"
     >
   </a>
 
 </p>
+
 
 
 ## Cyber Skill Radar
