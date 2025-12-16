@@ -47,7 +47,7 @@
   <img src="generated/cyber_radar.gif" width="550" alt="Cyber Skill Radar">
 </p>
 
-> Overall progress: 0.0% of the cert list (0/122).
+> Overall progress: 0.0% of the cert list (0/124).
 > No dominant region yet – radar is empty.
 > “This guy is a noob.” – Robot
 <!-- radar-end -->
