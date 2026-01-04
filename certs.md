@@ -2,7 +2,7 @@
 
 Network Security
 
-- [ ] CompTIA Network+
+- [x] CompTIA Network+
 
 - [ ] Cisco Certified Network Associate (CCNA)
 - [ ] Cisco Certified Network Professional - Enterprise (CCNP - E)
