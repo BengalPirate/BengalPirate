@@ -71,6 +71,7 @@ Assessment and Testing
 - [ ] GIAC Certified Intrusion Analyst Certification (GCIA)
 - [ ] GIAC Mobile Device Security Analyst (GMOB)
       
+- [ ] HackTheBox Certified Offensive AI Expert (COAE)
 - [ ] ISACA Certified Information Systems Auditor (CISA)
 - [ ] PCI Qualified Security Assessor (PCI DSS QSA)
 - [ ] GIAC Systems and Network Auditor Certification (GSNA)
@@ -95,7 +96,6 @@ Software Security
 Forensics and Incident Handling
 
 - [ ] Mosse Institute Certified OSINT Expert (MOIS)
-- [ ] Mosse Institute Certified OSINT Expert (MOIS)
 - [ ] EC Council Certified SOC Analyst (CSA)
 - [ ] EC Council Certified Threat Intelligence Analyst (CTIA)
 - [ ] CompTIA CySA+
@@ -111,6 +111,7 @@ Forensics and Incident Handling
 - [ ] INFOSEC Certified Computer Forensics Examiner (CCFE)
 - [ ] TCM Security Practical OSINT Research Professional (PORP)
 - [ ] Offensive Security SOC - 200 Security Operations and Defensive Analysis (OSDA)
+- [ ] HackTheBox Certified Defensive Security Analyst (CDSA)
 - [ ] Offensive Security TH-200 Foundational Threat Hunting (OSTH)
       
 - [ ] GIAC Advanced Smartphone Forensics Certification (GASF)
@@ -126,6 +127,7 @@ Penetration Testing and Exploitation
 - [ ] EC Council Certified Ethical Hacker  (CEH)
 - [ ] Mosse Institute Vulnerability Research and Exploitation Specialist (MVRE)
 - [ ] TCM Security Practical IoT Pentest Associate (PIPA)
+- [ ] HackTheBox Certified Junior Cybersecurity Associate (CJCA)
 - [ ] INE Junior Penetration Tester (eJPT)
 - [ ] INE Mobile Application Penetration Tester (eMAPT)
 - [ ] Mile2 Certified Powershell Hacker (C - PSH)
@@ -133,7 +135,7 @@ Penetration Testing and Exploitation
 - [ ] Offensive Security PEN - 103 Kali Linux Revealed (KLCP)
       
 - [ ] INE Certified Professional Penetration Tester (eCPPT)
-- [ ] HackTheBox Certified Bug Bounty Hunter (HTB CBBH)
+- [ ] HackTheBox Certified Web Exploitation Specialist (CWES)
 - [ ] Mosse Institute Certified Penetration Tester Certification (MPT)
 - [ ] HackTheBox Certified Penetration Testing Specialist (HTB CPTS)
 - [ ] GIAC Web Application Penetration Tester (GWAPT)
@@ -150,6 +152,8 @@ Penetration Testing and Exploitation
 - [ ] Zero Point Security Red Team Ops II (CRTO II)
       
 - [ ] HackTheBox Certified Web Exploitation Expert (HTB CWEE)
+- [ ] HackTheBox Wifi Pentesting Expert (CWPE)
+- [ ] HackTheBox Active Directory Pentesting Expert (CAPE)
 - [ ] INE Web Application Penetration Tester eXtreme (eWPTX)
 - [ ] GIAC Assessing and Auditing Wireless Networks (GAWN)
 - [ ] GIAC Exploit Researcher and Advanced Penetration Tester (GXPN)
