@@ -17,7 +17,7 @@ Network Security
 Architecture and Engineering
 
 - [ ] CompTIA A+
-- [ ] Amazon Web Services Certified Cloud Practitoner
+- [ ] Amazon Web Services Certified Cloud Practitioner
 - [ ] Microsoft Certified Azure Fundamentals
 - [ ] CompTIA Cloud+
 - [ ] Google Associate Cloud Engineer
@@ -48,15 +48,15 @@ Architecture and Engineering
 Security and Risk Management
 
 - [ ] CompTIA Security+
-- [ ] Mile2 Certified Healthcare Information Systems Security Practitoner
+- [ ] Mile2 Certified Healthcare Information Systems Security Practitioner (C-HISSP)
       
-- [ ] ISC2 HealthCare Information Security and Privacy Practitoner (HCISPP)
+- [ ] ISC2 HealthCare Information Security and Privacy Practitioner (HCISPP)
 - [ ] ISACA Certified Data Privacy Solutions Engineer (CDPSE)
 - [ ] ISACA Certified in Risk and Information Systems Control (CRISC)
 - [ ] CompTIA SecOT+
       
 - [ ] CompTIA SecurityX
-- [ ] GIAC Security Professsional (GSP)
+- [ ] GIAC Security Professional (GSP)
 - [ ] GIAC Strategic Planning, Policy and Leadership (GSTRT)
 - [ ] ISC2 Certified Information Systems Security Professional (CISSP)
 - [ ] Project Management Institute Project Management Professional (PMP)
@@ -80,8 +80,8 @@ Software Security
 
 - [ ] SECO Secure Programming Foundation (S - SPF)
 - [ ] Mosse Institute Certified Application Security Engineer (MASE)
-- [ ] SecOps Group Certified AppSec Practitoner (CAP)
-- [ ] Offensive Security SJD -100 Secure Java Development Essentials (OSCC-SJD)
+- [ ] SecOps Group Certified AppSec Practitioner (CAP)
+- [ ] Offensive Security SJD - 100 Secure Java Development Essentials (OSCC-SJD)
       
 - [ ] GIAC Machine Learning Engineer (GMLE)
 - [ ] EC Council Certified Application Security Engineer (CASE)
@@ -106,7 +106,7 @@ Forensics and Incident Handling
 - [ ] IntelTechniques Open Source Intelligence Professional (OSIP)
 - [ ] McAfee Certified Social Media Intelligence Expert (CSMIE)
 - [ ] EC Council Computer Hacking Forensic Investigator (CHFI)
-- [ ] INE Certified Inident Responder (eCIR)
+- [ ] INE Certified Incident Responder (eCIR)
 - [ ] INFOSEC Certified Mobile Forensics Examiner (CMFE)
 - [ ] INFOSEC Certified Computer Forensics Examiner (CCFE)
 - [ ] TCM Security Practical OSINT Research Professional (PORP)
@@ -124,13 +124,13 @@ Forensics and Incident Handling
 Penetration Testing and Exploitation
 
 - [ ] CompTIA Pentest+
-- [ ] EC Council Certified Ethical Hacker  (CEH)
+- [ ] EC Council Certified Ethical Hacker (CEH)
 - [ ] Mosse Institute Vulnerability Research and Exploitation Specialist (MVRE)
 - [ ] TCM Security Practical IoT Pentest Associate (PIPA)
 - [ ] HackTheBox Certified Junior Cybersecurity Associate (HTB CJCA)
 - [ ] INE Junior Penetration Tester (eJPT)
 - [ ] INE Mobile Application Penetration Tester (eMAPT)
-- [ ] Mile2 Certified Powershell Hacker (C - PSH)
+- [ ] Mile2 Certified PowerShell Hacker (C - PSH)
 - [ ] TCM Security Practical Junior Penetration Tester (PJPT)
 - [ ] Offensive Security PEN - 103 Kali Linux Revealed (KLCP)
       
@@ -140,7 +140,7 @@ Penetration Testing and Exploitation
 - [ ] HackTheBox Certified Penetration Testing Specialist (HTB CPTS)
 - [ ] GIAC Web Application Penetration Tester (GWAPT)
 - [ ] Offensive Security WEB - 200 Web Attacks with Kali Linux (OSWA)
-- [ ] Offensive Security PEN - 210 Wireless network Attacks (OSWP)
+- [ ] Offensive Security PEN - 210 Wireless Network Attacks (OSWP)
 - [ ] TCM Security Practical Mobile Pentest Associate (PMPA)
 - [ ] TCM Security Practical Network Penetration Tester (PNPT)
 - [ ] Altered Security Certified Red Team Professional (CRTP)
