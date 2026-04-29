@@ -139,15 +139,15 @@ Penetration Testing and Exploitation
 - [ ] Mosse Institute Certified Penetration Tester Certification (MPT)
 - [ ] HackTheBox Certified Penetration Testing Specialist (HTB CPTS)
 - [ ] GIAC Web Application Penetration Tester (GWAPT)
-- [ ] Offensive Security WEB - 200 Web Attacks with Kali Linux (OSWA) *
-- [ ] Offensive Security PEN - 210 Wireless network Attacks (OSWP) *
+- [ ] Offensive Security WEB - 200 Web Attacks with Kali Linux (OSWA)
+- [ ] Offensive Security PEN - 210 Wireless network Attacks (OSWP)
 - [ ] TCM Security Practical Mobile Pentest Associate (PMPA)
 - [ ] TCM Security Practical Network Penetration Tester (PNPT)
 - [ ] Altered Security Certified Red Team Professional (CRTP)
 - [ ] GIAC Cloud Penetration Tester (GCPN)
 - [ ] GIAC Certified Penetration Tester (GPEN)
 - [ ] Zero Point Security Red Team Ops (CRTO)
-- [ ] Offensive Security PEN - 200 Penetration Testing with Kali Linux (OSCP) *
+- [ ] Offensive Security PEN - 200 Penetration Testing with Kali Linux (OSCP)
 - [ ] Offensive Security EXP - 312 MacOS Control Bypasses (OSMR)
 - [ ] Zero Point Security Red Team Ops II (CRTO II)
       
@@ -157,9 +157,9 @@ Penetration Testing and Exploitation
 - [ ] INE Web Application Penetration Tester eXtreme (eWPTX)
 - [ ] GIAC Assessing and Auditing Wireless Networks (GAWN)
 - [ ] GIAC Exploit Researcher and Advanced Penetration Tester (GXPN)
-- [ ] Offensive Security WEB - 300 Advanced Web Attacks and Exploitation (OSWE) *
-- [ ] Offensive Security PEN - 300 Evasion Techniques and Breaching Defenses (OSEP) *
-- [ ] Offensive Security EXP - 301 Windows User Mode Exploit Development (OSED) *
+- [ ] Offensive Security WEB - 300 Advanced Web Attacks and Exploitation (OSWE)
+- [ ] Offensive Security PEN - 300 Evasion Techniques and Breaching Defenses (OSEP)
+- [ ] Offensive Security EXP - 301 Windows User Mode Exploit Development (OSED)
 - [ ] Offensive Security Certified Expert 3 (OSCE3)
 - [ ] Offensive Security EXP - 401 Advanced Windows Exploitation (OSEE)
 
