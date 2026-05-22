@@ -75,6 +75,7 @@ Assessment and Testing
 - [ ] ISACA Certified Information Systems Auditor (CISA)
 - [ ] PCI Qualified Security Assessor (PCI DSS QSA)
 - [ ] GIAC Systems and Network Auditor Certification (GSNA)
+- [ ] Offensive Security AI - 300 Advanced AI Red Teaming (OSAI)
 
 Software Security
 
