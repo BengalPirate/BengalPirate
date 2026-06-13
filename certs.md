@@ -115,6 +115,7 @@ Forensics and Incident Handling
 - [ ] HackTheBox Certified Defensive Security Analyst (HTB CDSA)
 - [ ] Offensive Security TH-200 Foundational Threat Hunting (OSTH)
       
+- [ ] INE Certified Threat Hunting Professional (eCTHP)
 - [ ] GIAC Advanced Smartphone Forensics Certification (GASF)
 - [ ] GIAC Certified Forensic Examiner (GCFE)
 - [ ] GIAC Certified Forensic Analyst (GCFA)
